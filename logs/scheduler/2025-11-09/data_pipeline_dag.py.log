@@ -2897,3 +2897,24 @@
 [2025-11-09T14:35:10.504+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:10.504+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-11-09T14:35:10.516+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:10.515+0000] {dag.py:4180} INFO - Setting next_dagrun for data_pipeline_dag to None, run_after=None
 [2025-11-09T14:35:10.555+0000] {processor.py:208} INFO - Processing /app/dags/data_pipeline_dag.py took 0.105 seconds
+[2025-11-09T14:35:40.687+0000] {processor.py:186} INFO - Started process (PID=116) to work on /app/dags/data_pipeline_dag.py
+[2025-11-09T14:35:40.688+0000] {processor.py:914} INFO - Processing file /app/dags/data_pipeline_dag.py for tasks to queue
+[2025-11-09T14:35:40.690+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:40.690+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:35:40.706+0000] {processor.py:925} INFO - DAG(s) 'data_pipeline_dag' retrieved from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:35:40.726+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:40.726+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:35:40.737+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:40.737+0000] {dag.py:4180} INFO - Setting next_dagrun for data_pipeline_dag to None, run_after=None
+[2025-11-09T14:35:40.775+0000] {processor.py:208} INFO - Processing /app/dags/data_pipeline_dag.py took 0.092 seconds
+[2025-11-09T14:36:34.796+0000] {processor.py:186} INFO - Started process (PID=1166) to work on /app/dags/data_pipeline_dag.py
+[2025-11-09T14:36:34.797+0000] {processor.py:914} INFO - Processing file /app/dags/data_pipeline_dag.py for tasks to queue
+[2025-11-09T14:36:34.799+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:34.798+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:36:34.814+0000] {processor.py:925} INFO - DAG(s) 'data_pipeline_dag' retrieved from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:36:34.838+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:34.837+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:36:34.848+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:34.848+0000] {dag.py:4180} INFO - Setting next_dagrun for data_pipeline_dag to None, run_after=None
+[2025-11-09T14:36:34.890+0000] {processor.py:208} INFO - Processing /app/dags/data_pipeline_dag.py took 0.100 seconds
+[2025-11-09T14:37:05.263+0000] {processor.py:186} INFO - Started process (PID=1168) to work on /app/dags/data_pipeline_dag.py
+[2025-11-09T14:37:05.264+0000] {processor.py:914} INFO - Processing file /app/dags/data_pipeline_dag.py for tasks to queue
+[2025-11-09T14:37:05.266+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:05.265+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:37:05.281+0000] {processor.py:925} INFO - DAG(s) 'data_pipeline_dag' retrieved from /app/dags/data_pipeline_dag.py
+[2025-11-09T14:37:05.301+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:05.301+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:37:05.311+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:05.311+0000] {dag.py:4180} INFO - Setting next_dagrun for data_pipeline_dag to None, run_after=None
+[2025-11-09T14:37:05.345+0000] {processor.py:208} INFO - Processing /app/dags/data_pipeline_dag.py took 0.087 seconds

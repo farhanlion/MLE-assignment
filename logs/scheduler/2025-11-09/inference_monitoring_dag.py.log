@@ -2778,3 +2778,24 @@
 [2025-11-09T14:35:11.805+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:11.805+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-11-09T14:35:11.824+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:11.824+0000] {dag.py:4180} INFO - Setting next_dagrun for scheduled_training_dag to None, run_after=None
 [2025-11-09T14:35:11.865+0000] {processor.py:208} INFO - Processing /app/dags/inference_monitoring_dag.py took 0.119 seconds
+[2025-11-09T14:35:42.974+0000] {processor.py:186} INFO - Started process (PID=117) to work on /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:35:42.975+0000] {processor.py:914} INFO - Processing file /app/dags/inference_monitoring_dag.py for tasks to queue
+[2025-11-09T14:35:42.977+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:42.976+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:35:42.994+0000] {processor.py:925} INFO - DAG(s) 'scheduled_training_dag' retrieved from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:35:43.015+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:43.015+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:35:43.032+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:35:43.031+0000] {dag.py:4180} INFO - Setting next_dagrun for scheduled_training_dag to None, run_after=None
+[2025-11-09T14:35:43.073+0000] {processor.py:208} INFO - Processing /app/dags/inference_monitoring_dag.py took 0.105 seconds
+[2025-11-09T14:36:36.103+0000] {processor.py:186} INFO - Started process (PID=1167) to work on /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:36:36.104+0000] {processor.py:914} INFO - Processing file /app/dags/inference_monitoring_dag.py for tasks to queue
+[2025-11-09T14:36:36.106+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:36.106+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:36:36.123+0000] {processor.py:925} INFO - DAG(s) 'scheduled_training_dag' retrieved from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:36:36.146+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:36.146+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:36:36.165+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:36:36.165+0000] {dag.py:4180} INFO - Setting next_dagrun for scheduled_training_dag to None, run_after=None
+[2025-11-09T14:36:36.204+0000] {processor.py:208} INFO - Processing /app/dags/inference_monitoring_dag.py took 0.106 seconds
+[2025-11-09T14:37:06.475+0000] {processor.py:186} INFO - Started process (PID=1169) to work on /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:37:06.476+0000] {processor.py:914} INFO - Processing file /app/dags/inference_monitoring_dag.py for tasks to queue
+[2025-11-09T14:37:06.479+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:06.479+0000] {dagbag.py:588} INFO - Filling up the DagBag from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:37:06.496+0000] {processor.py:925} INFO - DAG(s) 'scheduled_training_dag' retrieved from /app/dags/inference_monitoring_dag.py
+[2025-11-09T14:37:06.521+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:06.521+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-09T14:37:06.539+0000] {logging_mixin.py:190} INFO - [2025-11-09T14:37:06.539+0000] {dag.py:4180} INFO - Setting next_dagrun for scheduled_training_dag to None, run_after=None
+[2025-11-09T14:37:06.581+0000] {processor.py:208} INFO - Processing /app/dags/inference_monitoring_dag.py took 0.111 seconds
