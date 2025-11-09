@@ -11,7 +11,11 @@ import pyspark
 from datetime import datetime, timedelta
 from pyspark.sql.functions import col
 from sklearn.preprocessing import StandardScaler
+import sys
+from pathlib import Path
 
+sys.path.append(str(Path(__file__).resolve().parents[1] / "utils"))
+from data_processing_before_fit import process_features
 # %%
 # Initialize SparkSession
 spark = pyspark.sql.SparkSession.builder \
@@ -31,7 +35,7 @@ config = {}
 config["snapshot_date_str"] = snapshot_date_str
 config["snapshot_date"] = datetime.strptime(config["snapshot_date_str"], "%Y-%m-%d")
 config["model_name"] = model_name
-config["model_bank_directory"] = "model_bank/"
+config["model_bank_directory"] = "/app/model_bank/"
 config["model_artefact_filepath"] = config["model_bank_directory"] + config["model_name"]
 
 pprint.pprint(config)
@@ -56,10 +60,9 @@ print("extracted features_sdf", features_sdf.count(), config["snapshot_date"])
 
 # %%
 # Preprocess features
-from utils.data_processing_before_fit import process_features
 
 features_sdf = features_sdf.dropna(how="any")
-features_sdf.show()
+
 
 features_pdf = features_sdf.toPandas()
 X_inference = process_features(features_pdf)\

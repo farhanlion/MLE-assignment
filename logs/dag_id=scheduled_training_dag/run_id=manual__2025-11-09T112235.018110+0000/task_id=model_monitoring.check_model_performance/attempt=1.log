@@ -1,0 +1,76 @@
+[2025-11-09T11:22:54.703+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T11:22:54.719+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:22:35.018110+00:00 [queued]>
+[2025-11-09T11:22:54.731+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:22:35.018110+00:00 [queued]>
+[2025-11-09T11:22:54.731+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-09T11:22:54.761+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): model_monitoring.check_model_performance> on 2025-11-09 11:22:35.018110+00:00
+[2025-11-09T11:22:54.767+0000] {standard_task_runner.py:72} INFO - Started process 16279 to run task
+[2025-11-09T11:22:54.770+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'scheduled_training_dag', 'model_monitoring.check_model_performance', 'manual__2025-11-09T11:22:35.018110+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/inference_monitoring_dag.py', '--cfg-path', '/tmp/tmp3874ij3m']
+[2025-11-09T11:22:54.773+0000] {standard_task_runner.py:105} INFO - Job 28: Subtask model_monitoring.check_model_performance
+[2025-11-09T11:22:54.847+0000] {task_command.py:467} INFO - Running <TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:22:35.018110+00:00 [running]> on host 7468da456d69
+[2025-11-09T11:22:54.941+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='scheduled_training_dag' AIRFLOW_CTX_TASK_ID='model_monitoring.check_model_performance' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T11:22:35.018110+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T11:22:35.018110+00:00'
+[2025-11-09T11:22:54.942+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T11:22:54.953+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T11:22:54.955+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/06_model_performance_monitoring.py --train_date 2016-04-01']
+[2025-11-09T11:22:54.962+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T11:22:56.940+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T11:22:56.942+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T11:22:57.066+0000] {subprocess.py:93} INFO - 25/11/09 11:22:57 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T11:23:05.231+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------------------------+--------------------+
+[2025-11-09T11:23:05.232+0000] {subprocess.py:93} INFO - |Customer_ID|snapshot_date|model_name                     |model_predictions   |
+[2025-11-09T11:23:05.233+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------------------------+--------------------+
+[2025-11-09T11:23:05.234+0000] {subprocess.py:93} INFO - |CUS_0x1d9e |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.08877021819353104 |
+[2025-11-09T11:23:05.234+0000] {subprocess.py:93} INFO - |CUS_0x7ea2 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.1391143500804901  |
+[2025-11-09T11:23:05.235+0000] {subprocess.py:93} INFO - |CUS_0xedb  |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.6090103983879089  |
+[2025-11-09T11:23:05.236+0000] {subprocess.py:93} INFO - |CUS_0x4b91 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.2919446527957916  |
+[2025-11-09T11:23:05.237+0000] {subprocess.py:93} INFO - |CUS_0x6b0c |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.04694114997982979 |
+[2025-11-09T11:23:05.237+0000] {subprocess.py:93} INFO - |CUS_0x971a |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.2924809753894806  |
+[2025-11-09T11:23:05.238+0000] {subprocess.py:93} INFO - |CUS_0x6a1a |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.2607428729534149  |
+[2025-11-09T11:23:05.239+0000] {subprocess.py:93} INFO - |CUS_0x7c64 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.14412736892700195 |
+[2025-11-09T11:23:05.239+0000] {subprocess.py:93} INFO - |CUS_0xab92 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.1766100525856018  |
+[2025-11-09T11:23:05.240+0000] {subprocess.py:93} INFO - |CUS_0xc16d |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.5853181481361389  |
+[2025-11-09T11:23:05.241+0000] {subprocess.py:93} INFO - |CUS_0x8466 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.3044661581516266  |
+[2025-11-09T11:23:05.241+0000] {subprocess.py:93} INFO - |CUS_0x74f7 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.11526822298765182 |
+[2025-11-09T11:23:05.242+0000] {subprocess.py:93} INFO - |CUS_0x1226 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.10011135041713715 |
+[2025-11-09T11:23:05.242+0000] {subprocess.py:93} INFO - |CUS_0x8b3e |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.12442021816968918 |
+[2025-11-09T11:23:05.243+0000] {subprocess.py:93} INFO - |CUS_0xb8e5 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.16391964256763458 |
+[2025-11-09T11:23:05.244+0000] {subprocess.py:93} INFO - |CUS_0xbc38 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.3695943057537079  |
+[2025-11-09T11:23:05.244+0000] {subprocess.py:93} INFO - |CUS_0x47a  |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.049319446086883545|
+[2025-11-09T11:23:05.245+0000] {subprocess.py:93} INFO - |CUS_0xa2c5 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.6228354573249817  |
+[2025-11-09T11:23:05.246+0000] {subprocess.py:93} INFO - |CUS_0xc5a0 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.09805397689342499 |
+[2025-11-09T11:23:05.246+0000] {subprocess.py:93} INFO - |CUS_0x8cf2 |2024-11-01   |xgb_credit_model_2024_09_01.pkl|0.08550011366605759 |
+[2025-11-09T11:23:05.247+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------------------------+--------------------+
+[2025-11-09T11:23:05.248+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T11:23:05.248+0000] {subprocess.py:93} INFO - 
+[2025-11-09T11:23:05.248+0000] {subprocess.py:93} INFO - +-------------+-----------+-------------------------------+--------------------+---------------------+-----+----------+
+[2025-11-09T11:23:05.249+0000] {subprocess.py:93} INFO - |snapshot_date|Customer_ID|model_name                     |model_predictions   |loan_id              |label|label_def |
+[2025-11-09T11:23:05.250+0000] {subprocess.py:93} INFO - +-------------+-----------+-------------------------------+--------------------+---------------------+-----+----------+
+[2025-11-09T11:23:05.251+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x1226 |xgb_credit_model_2024_09_01.pkl|0.10011135041713715 |CUS_0x1226_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.252+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x34a8 |xgb_credit_model_2024_09_01.pkl|0.10896249860525131 |CUS_0x34a8_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.252+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x6896 |xgb_credit_model_2024_09_01.pkl|0.2984662353992462  |CUS_0x6896_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.253+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x563b |xgb_credit_model_2024_09_01.pkl|0.15448184311389923 |CUS_0x563b_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.253+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x7562 |xgb_credit_model_2024_09_01.pkl|0.06960427761077881 |CUS_0x7562_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.254+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xc47  |xgb_credit_model_2024_09_01.pkl|0.041900381445884705|CUS_0xc47_2024_04_01 |0    |90dpd_7mob|
+[2025-11-09T11:23:05.255+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x6853 |xgb_credit_model_2024_09_01.pkl|0.7571903467178345  |CUS_0x6853_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.255+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x68ea |xgb_credit_model_2024_09_01.pkl|0.1292990893125534  |CUS_0x68ea_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.256+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x77fa |xgb_credit_model_2024_09_01.pkl|0.5870067477226257  |CUS_0x77fa_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.257+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x1edc |xgb_credit_model_2024_09_01.pkl|0.12172308564186096 |CUS_0x1edc_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.257+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xa1a8 |xgb_credit_model_2024_09_01.pkl|0.07666398584842682 |CUS_0xa1a8_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.258+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xb464 |xgb_credit_model_2024_09_01.pkl|0.36136573553085327 |CUS_0xb464_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.258+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x8bd4 |xgb_credit_model_2024_09_01.pkl|0.12250109016895294 |CUS_0x8bd4_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.259+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xb09  |xgb_credit_model_2024_09_01.pkl|0.0935773029923439  |CUS_0xb09_2024_04_01 |0    |90dpd_7mob|
+[2025-11-09T11:23:05.260+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xa7ce |xgb_credit_model_2024_09_01.pkl|0.6317145228385925  |CUS_0xa7ce_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.260+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x4691 |xgb_credit_model_2024_09_01.pkl|0.6671593189239502  |CUS_0x4691_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.261+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x51d8 |xgb_credit_model_2024_09_01.pkl|0.12779374420642853 |CUS_0x51d8_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.261+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0xc394 |xgb_credit_model_2024_09_01.pkl|0.2086815983057022  |CUS_0xc394_2024_04_01|1    |90dpd_7mob|
+[2025-11-09T11:23:05.262+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x8b06 |xgb_credit_model_2024_09_01.pkl|0.5313517451286316  |CUS_0x8b06_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.262+0000] {subprocess.py:93} INFO - |2024-11-01   |CUS_0x925e |xgb_credit_model_2024_09_01.pkl|0.09126666188240051 |CUS_0x925e_2024_04_01|0    |90dpd_7mob|
+[2025-11-09T11:23:05.263+0000] {subprocess.py:93} INFO - +-------------+-----------+-------------------------------+--------------------+---------------------+-----+----------+
+[2025-11-09T11:23:05.264+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T11:23:05.264+0000] {subprocess.py:93} INFO - 
+[2025-11-09T11:23:05.264+0000] {subprocess.py:93} INFO - {'AUC': np.float64(0.7752331889318191), 'F1': 0.4424778761061947, 'Precision': 0.625, 'Recall': 0.3424657534246575, 'Brier': np.float64(0.15960375812194974), 'Pred_Mean': np.float64(0.24116244237517837), 'Positive_Rate': np.float64(0.14925373134328357)}
+[2025-11-09T11:23:05.846+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-09T11:23:05.883+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T11:23:05.884+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=scheduled_training_dag, task_id=model_monitoring.check_model_performance, run_id=manual__2025-11-09T11:22:35.018110+00:00, execution_date=20251109T112235, start_date=20251109T112254, end_date=20251109T112305
+[2025-11-09T11:23:05.922+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T11:23:05.943+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T11:23:05.946+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

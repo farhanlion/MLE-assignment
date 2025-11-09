@@ -241,3 +241,529 @@ File Path                              PID    Runtime      # DAGs    # Errors  L
 /app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:01:08                      12
 /app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:00:31                      10
 ================================================================================
+[2025-11-09T11:01:39.316+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:01:39                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:01:11                      10
+================================================================================
+[2025-11-09T11:02:10.259+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:02:10                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:01:42                      10
+================================================================================
+[2025-11-09T11:02:40.585+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:02:40                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:02:13                      10
+================================================================================
+[2025-11-09T11:02:51.254+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:02:51.283+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:03:10.923+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:03:10                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:02:44                      10
+================================================================================
+[2025-11-09T11:05:04.690+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-09T11:05:04.889+0000] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-09T11:05:04.890+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-09T11:05:04.891+0000] {manager.py:485} INFO - Checking for new files in /app/dags every 300 seconds
+[2025-11-09T11:05:04.892+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:05:04.920+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:05:05.208+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:05:05                      10
+/app/dags/inference_monitoring_dag.py                           0           0                                                            0
+================================================================================
+[2025-11-09T11:05:56.352+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-09T11:05:56.547+0000] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-09T11:05:56.548+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-09T11:05:56.549+0000] {manager.py:485} INFO - Checking for new files in /app/dags every 300 seconds
+[2025-11-09T11:05:56.550+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:05:56.577+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:05:56.865+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:05:56                      10
+/app/dags/inference_monitoring_dag.py                           0           0                                                            0
+================================================================================
+[2025-11-09T11:06:27.096+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:06:13                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:06:27                      10
+================================================================================
+[2025-11-09T11:06:57.516+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:06:45                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:06:57                      10
+================================================================================
+[2025-11-09T11:07:28.174+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:07:15                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:07:28                      10
+================================================================================
+[2025-11-09T11:07:58.823+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:07:46                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:07:58                      10
+================================================================================
+[2025-11-09T11:08:29.332+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:08:17                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.11s           2025-11-09T11:08:29                      10
+================================================================================
+[2025-11-09T11:08:59.708+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:08:59                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:08:47                      12
+================================================================================
+[2025-11-09T11:09:35.858+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:09:18                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:09:35                      10
+================================================================================
+[2025-11-09T11:10:05.863+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:09:49                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:09:35                      10
+================================================================================
+[2025-11-09T11:10:35.949+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:10:20                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:10:06                      10
+================================================================================
+[2025-11-09T11:10:57.486+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:10:57.518+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:11:06.188+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:10:37                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:10:51                      12
+================================================================================
+[2025-11-09T11:11:36.754+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:11:07                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:11:21                      12
+================================================================================
+[2025-11-09T11:12:06.772+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:11:52                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:11:38                      10
+================================================================================
+[2025-11-09T11:12:37.436+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:12:22                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:12:08                      10
+================================================================================
+[2025-11-09T11:13:08.580+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.41s           2025-11-09T11:12:39                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:13:08                      12
+================================================================================
+[2025-11-09T11:14:02.819+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-09T11:14:03.015+0000] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-09T11:14:03.016+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-09T11:14:03.017+0000] {manager.py:485} INFO - Checking for new files in /app/dags every 300 seconds
+[2025-11-09T11:14:03.017+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:14:03.045+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:14:03.328+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:14:03                      10
+/app/dags/inference_monitoring_dag.py                           0           0                                                            0
+================================================================================
+[2025-11-09T11:16:20.953+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-09T11:16:21.141+0000] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-09T11:16:21.142+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-09T11:16:21.142+0000] {manager.py:485} INFO - Checking for new files in /app/dags every 300 seconds
+[2025-11-09T11:16:21.143+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:16:21.170+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:16:21.455+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:16:21                      10
+/app/dags/inference_monitoring_dag.py                           0           0                                                            0
+================================================================================
+[2025-11-09T11:18:52.941+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-09T11:18:53.130+0000] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-09T11:18:53.130+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-09T11:18:53.131+0000] {manager.py:485} INFO - Checking for new files in /app/dags every 300 seconds
+[2025-11-09T11:18:53.132+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:18:53.155+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:18:53.434+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:18:53                      10
+/app/dags/inference_monitoring_dag.py                           0           0                                                            0
+================================================================================
+[2025-11-09T11:19:41.264+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:18:53                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:19:41                      12
+================================================================================
+[2025-11-09T11:20:11.657+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:19:42                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:20:11                      12
+================================================================================
+[2025-11-09T11:20:42.522+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:20:12                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:20:42                      12
+================================================================================
+[2025-11-09T11:21:12.961+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:20:43                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:21:12                      12
+================================================================================
+[2025-11-09T11:21:43.958+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:21:14                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:21:43                      12
+================================================================================
+[2025-11-09T11:22:14.504+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:21:45                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:22:14                      12
+================================================================================
+[2025-11-09T11:22:52.892+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:22:52                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:22:14                      12
+================================================================================
+[2025-11-09T11:23:25.109+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:23:25                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:22:52                      10
+================================================================================
+[2025-11-09T11:24:12.713+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:24:12.734+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:24:12.984+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:23:25                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:24:12                      10
+================================================================================
+[2025-11-09T11:24:43.272+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:24:43                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:24:14                      12
+================================================================================
+[2025-11-09T11:25:14.316+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:24:44                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:25:14                      10
+================================================================================
+[2025-11-09T11:25:44.319+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:25:15                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:25:14                      10
+================================================================================
+[2025-11-09T11:26:14.590+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:25:46                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:25:45                      10
+================================================================================
+[2025-11-09T11:26:44.840+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:26:17                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:26:15                      10
+================================================================================
+[2025-11-09T11:27:15.161+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:26:46                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:26:47                      12
+================================================================================
+[2025-11-09T11:27:45.567+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.31s           2025-11-09T11:27:16                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:27:18                      12
+================================================================================
+[2025-11-09T11:28:15.815+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:27:49                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:27:47                      10
+================================================================================
+[2025-11-09T11:28:46.212+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:28:18                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:28:20                      12
+================================================================================
+[2025-11-09T11:29:13.776+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:29:13.799+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:29:16.430+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:28:48                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:28:51                      12
+================================================================================
+[2025-11-09T11:29:47.134+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:29:19                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:29:21                      12
+================================================================================
+[2025-11-09T11:30:17.800+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:29:50                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:29:52                      12
+================================================================================
+[2025-11-09T11:30:48.304+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:30:23                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:30:21                      10
+================================================================================
+[2025-11-09T11:31:19.005+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:30:53                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:30:51                      10
+================================================================================
+[2025-11-09T11:31:49.660+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.21s           2025-11-09T11:31:22                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:31:24                      12
+================================================================================
+[2025-11-09T11:32:20.320+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:31:54                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:31:53                      10
+================================================================================
+[2025-11-09T11:32:50.892+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:32:25                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:32:23                      10
+================================================================================
+[2025-11-09T11:33:21.611+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:32:54                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:32:56                      12
+================================================================================
+[2025-11-09T11:33:52.553+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.41s           2025-11-09T11:33:25                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.30s           2025-11-09T11:33:27                      12
+================================================================================
+[2025-11-09T11:34:13.830+0000] {manager.py:821} INFO - Searching for files in /app/dags
+[2025-11-09T11:34:13.855+0000] {manager.py:824} INFO - There are 2 files in /app/dags
+[2025-11-09T11:34:23.221+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:33:55                      10
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:33:57                      12
+================================================================================
+[2025-11-09T11:34:53.825+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.20s           2025-11-09T11:34:28                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:34:27                      10
+================================================================================
+[2025-11-09T11:35:24.729+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/app/dags/inference_monitoring_dag.py                           1           0  0.21s           2025-11-09T11:34:59                      12
+/app/dags/data_pipeline_dag.py                                  1           0  0.20s           2025-11-09T11:34:58                      10
+================================================================================

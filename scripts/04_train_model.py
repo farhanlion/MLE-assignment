@@ -21,7 +21,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import make_scorer, roc_auc_score
 from sklearn.model_selection import RandomizedSearchCV
 import xgboost as xgb
+import sys
+from pathlib import Path
 
+sys.path.append(str(Path(__file__).resolve().parents[1] / "utils"))
+from data_processing_before_fit import process_features
 # %%
 
 # Initialize SparkSession
@@ -137,7 +141,6 @@ print('y_oot', y_oot.shape[0], round(y_oot.mean(),2))
 
 # %%
 # Preprocess features
-from utils.data_processing_before_fit import process_features
 
 X_train_processed = process_features(X_train)
 X_test_processed = process_features(X_test)
@@ -247,7 +250,7 @@ pprint.pprint(model_artefact)
 # %%
 
 # save to model_bank dir
-model_bank_directory = "model_bank/"
+model_bank_directory = "/app/model_bank/"
 
 if not os.path.exists(model_bank_directory):
     os.makedirs(model_bank_directory)

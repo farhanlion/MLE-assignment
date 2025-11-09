@@ -1,0 +1,31 @@
+[2025-11-09T11:14:05.029+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T11:14:05.045+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_pipeline_dag.bronze_layer manual__2025-11-09T10:49:30.084303+00:00 [queued]>
+[2025-11-09T11:14:05.054+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_pipeline_dag.bronze_layer manual__2025-11-09T10:49:30.084303+00:00 [queued]>
+[2025-11-09T11:14:05.055+0000] {taskinstance.py:2865} INFO - Starting attempt 4 of 5
+[2025-11-09T11:14:05.080+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): bronze_layer> on 2025-11-09 10:49:30.084303+00:00
+[2025-11-09T11:14:05.085+0000] {standard_task_runner.py:72} INFO - Started process 8923 to run task
+[2025-11-09T11:14:05.088+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'data_pipeline_dag', 'bronze_layer', 'manual__2025-11-09T10:49:30.084303+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_dag.py', '--cfg-path', '/tmp/tmphvwe99uq']
+[2025-11-09T11:14:05.090+0000] {standard_task_runner.py:105} INFO - Job 22: Subtask bronze_layer
+[2025-11-09T11:14:05.159+0000] {task_command.py:467} INFO - Running <TaskInstance: data_pipeline_dag.bronze_layer manual__2025-11-09T10:49:30.084303+00:00 [running]> on host 7468da456d69
+[2025-11-09T11:14:05.230+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_pipeline_dag' AIRFLOW_CTX_TASK_ID='bronze_layer' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T10:49:30.084303+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T10:49:30.084303+00:00'
+[2025-11-09T11:14:05.231+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T11:14:05.243+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T11:14:05.245+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/01_create_bronze_layer.py']
+[2025-11-09T11:14:05.252+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T11:14:06.860+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T11:14:06.863+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T11:14:06.997+0000] {subprocess.py:93} INFO - 25/11/09 11:14:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T11:14:35.296+0000] {subprocess.py:93} INFO - [Stage 9:>                                                          (0 + 1) / 1]                                                                                Created directory (if missing): /app/datamart/bronze/lms/
+[2025-11-09T11:14:35.297+0000] {subprocess.py:93} INFO - Created directory (if missing): /app/datamart/bronze/clickstream/
+[2025-11-09T11:14:35.298+0000] {subprocess.py:93} INFO - Created directory (if missing): /app/datamart/bronze/attributes/
+[2025-11-09T11:14:35.299+0000] {subprocess.py:93} INFO - Created directory (if missing): /app/datamart/bronze/fin/
+[2025-11-09T11:14:35.299+0000] {subprocess.py:93} INFO - Saved 35 bronze files to /app/datamart/bronze/lms/
+[2025-11-09T11:14:35.300+0000] {subprocess.py:93} INFO - Saved 24 bronze files to /app/datamart/bronze/clickstream/
+[2025-11-09T11:14:35.300+0000] {subprocess.py:93} INFO - Saved 25 bronze files to /app/datamart/bronze/attributes/
+[2025-11-09T11:14:35.301+0000] {subprocess.py:93} INFO - Saved 25 bronze files to /app/datamart/bronze/fin/
+[2025-11-09T11:14:35.831+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-09T11:14:35.867+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T11:14:35.868+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_pipeline_dag, task_id=bronze_layer, run_id=manual__2025-11-09T10:49:30.084303+00:00, execution_date=20251109T104930, start_date=20251109T111405, end_date=20251109T111435
+[2025-11-09T11:14:35.923+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T11:14:35.946+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T11:14:35.954+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

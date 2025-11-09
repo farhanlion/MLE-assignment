@@ -30,7 +30,6 @@ spark.sparkContext.setLogLevel("ERROR")
 predictions_directory = "/app/datamart/gold/model_predictions/"
 files_list = [predictions_directory+os.path.basename(f) for f in glob.glob(os.path.join(predictions_directory, '*'))]
 df_predictions = spark.read.option("header", "true").parquet(*files_list)
-df_predictions.show(truncate=False)
 
 # %%
 # Load true labels and join
@@ -43,8 +42,6 @@ merged_df = df_predictions.join(
     on=["snapshot_date", "Customer_ID"],
     how="inner"
 )
-
-merged_df.show(truncate=False)
 # %%
 from pyspark.sql import functions as F
 
@@ -70,4 +67,9 @@ metrics = {
     "Positive_Rate": y_pred_binary.mean()
 }
 
-print(metrics)
+import pandas as pd
+
+df_metrics = pd.DataFrame(metrics.items(), columns=["Metric", "Value"])
+print("\n📊 Model Metrics Table")
+print(df_metrics.to_string(index=False, float_format="%.4f"))
+

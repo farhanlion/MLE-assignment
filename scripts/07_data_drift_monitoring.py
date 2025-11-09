@@ -20,22 +20,18 @@ predictions_directory = "/app/datamart/gold/model_predictions/"
 files_list = [predictions_directory+os.path.basename(f) for f in glob.glob(os.path.join(predictions_directory, '*'))]
 df_predictions = spark.read.option("header", "true").parquet(*files_list)
 print("predictions:")
-df_predictions.show(truncate=False)
 
 # Load Gold Features
 gold_label_directory = "/app/datamart/gold/label_store/"
 files_list = [gold_label_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_label_directory, '*'))]
 label_df = spark.read.option("header", "true").parquet(*files_list)
 print("True labels:")
-label_df.show(truncate=False)
 
 # load features (same snapshot granularity as predictions)
 features_dir = "/app/datamart/gold/feature_store/"
 files = [features_dir + os.path.basename(f) for f in glob.glob(os.path.join(features_dir, '*'))]
 df_features = spark.read.parquet(*files)
 print("Features:")
-df_features.show(truncate=False)
-
 
 # %%
 label_df.groupBy("snapshot_date") \
@@ -53,8 +49,6 @@ merged_df = df_predictions.alias("p").join(
     on=["Customer_ID","snapshot_date"],
     how="inner"   # labels may be missing
 )
-
-merged_df.show()
 
 # %% [markdown]
 # # Data Drift (feature distribution shift)
@@ -83,8 +77,6 @@ for col in ["Annual_Income","Num_of_Loan","Credit_History_Age","fe_1","fe_2","fe
 
 # %%
 df = merged_df.withColumn("prediction_error", F.abs(F.col("label") - F.col("model_predictions")))
-df.groupBy("snapshot_date").agg(F.avg("prediction_error")).show()
-
 
 # %%
 import numpy as np
