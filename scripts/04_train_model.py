@@ -1,28 +1,29 @@
 # %%
+
 import os
 import glob
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 import random
+import pprint
+
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-import pprint
-import pyspark
-import pyspark.sql.functions as F
-from pyspark.sql.functions import col
-from pyspark.sql.types import StringType, IntegerType, FloatType, DateType
 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+import pyspark
+from pyspark.sql.functions import col
 from pyspark.sql import functions as F
-from pyspark.sql import types as T
-from pyspark.ml.feature import Imputer, StringIndexer
-from pyspark.ml import Pipeline
-from pyspark.sql import functions as F
-from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler, StandardScaler
-from pyspark.ml import Pipeline
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import make_scorer, roc_auc_score
+from sklearn.model_selection import RandomizedSearchCV
+import xgboost as xgb
 
 # %%
-# Load Gold Table
+
 # Initialize SparkSession
 spark = pyspark.sql.SparkSession.builder \
     .appName("dev") \
@@ -52,73 +53,46 @@ config["train_test_ratio"] = train_test_ratio
 
 pprint.pprint(config)
 
-# %% [markdown]
-# # Load Labels
 
 # %%
-gold_label_directory = "/app/datamart/gold/label_store/"
 
-# Read all CSV files into a single DataFrame
+# Load Lables
+gold_label_directory = "/app/datamart/gold/label_store/"
 files_list = [gold_label_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_label_directory, '*'))]
 df_labels = spark.read.option("header", "true").parquet(*files_list)
 
-# extract label store
+# filter dates
 df_labels = df_labels.filter((col("snapshot_date") >= config["train_test_start_date"]) & (col("snapshot_date") <= config["oot_end_date"]))
-
 print("extracted df_labels", df_labels.count(), config["train_test_start_date"], config["oot_end_date"])
 
-# %%
 df_labels.show()
-
 df_labels.count()
 
-# %% [markdown]
-# # Load Features
-
 # %%
+# Load Features
 gold_feature_directory = "/app/datamart/gold/feature_store/"
-
-# Read all CSV files into a single DataFrame
 files_list = [gold_feature_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_feature_directory, '*'))]
 df_features = spark.read.option("header", "true").parquet(*files_list)
 
+# filter dates
 df_features = df_features.filter((col("snapshot_date") >= config["train_test_start_date"]) & (col("snapshot_date") <= config["oot_end_date"]))
-
 print("extracted df_features", df_features.count(), config["train_test_start_date"], config["oot_end_date"])
 
-# %%
 df_features.show()
 
-# %% [markdown]
-# # Clean Features
-
 # %%
+# Clean Features
 num_null_ids = df_features.filter(F.col("Customer_ID").isNull()).count()
 total_rows = df_features.count()
 print(f"Customer_ID nulls: {num_null_ids} / {total_rows}")
 
-# %%
-
-df = df_features
-
-# 1️⃣ Drop all rows with ANY nulls
-df = df.dropna(how="any")
-
-df.show()
-
-# %%
-df.count()  
-
-# %%
+# Join Features and Labels
 data_pdf = df_labels.join(df_features, on=["Customer_ID", "snapshot_date"], how="left").toPandas()
 data_pdf = data_pdf.dropna()
 
-print("Row count:", df.count())
+print("Row count:", data_pdf.count())
 
 # %%
-from sklearn.model_selection import train_test_split
-
-
 # split data into train - test - oot
 oot_pdf = data_pdf[(data_pdf['snapshot_date'] >= config["oot_start_date"].date()) & (data_pdf['snapshot_date'] <= config["oot_end_date"].date())]
 train_test_pdf = data_pdf[(data_pdf['snapshot_date'] >= config["train_test_start_date"].date()) & (data_pdf['snapshot_date'] <= config["train_test_end_date"].date())]
@@ -154,7 +128,6 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=train_test_pdf["label"]           # Stratify based on the label column
 )
 
-
 print('X_train', X_train.shape[0])
 print('X_test', X_test.shape[0])
 print('X_oot', X_oot.shape[0])
@@ -162,46 +135,10 @@ print('y_train', y_train.shape[0], round(y_train.mean(),2))
 print('y_test', y_test.shape[0], round(y_test.mean(),2))
 print('y_oot', y_oot.shape[0], round(y_oot.mean(),2))
 
-X_train
-
 # %%
-import numpy as np
-import pandas as pd  # ✅ missing import
-from sklearn.preprocessing import StandardScaler  # ✅ indentation fixed
+# Preprocess features
+from utils.data_processing_before_fit import process_features
 
-def process_features(input_df):
-    
-    # Replace "_" with NaN
-    string_cols = input_df.select_dtypes(include="object").columns.tolist()
-    for c in string_cols:
-        input_df[c] = input_df[c].replace("_", np.nan)
-
-    # 3️⃣ One-hot encode categoricals
-    onehot_cols = ["Credit_Mix", "Payment_Behaviour", "Occupation"]
-    input_df = pd.get_dummies(input_df, columns=onehot_cols, drop_first=False)
-
-    # Convert boolean columns to 0/1
-    bool_cols = input_df.select_dtypes(include="bool").columns
-    input_df[bool_cols] = input_df[bool_cols].astype(int)
-
-
-    scaler = StandardScaler()
-
-    num_cols = [
-        "Annual_Income","Monthly_Inhand_Salary","Num_Bank_Accounts","Num_Credit_Card",
-        "Interest_Rate","Num_of_Loan","Delay_from_due_date","Num_of_Delayed_Payment",
-        "Changed_Credit_Limit","Num_Credit_Inquiries","Credit_Utilization_Ratio",
-        "Credit_History_Age",
-        "fe_1","fe_2","fe_3","fe_4","fe_5","fe_6","fe_7","fe_8","fe_9","fe_10",
-        "fe_11","fe_12","fe_13","fe_14","fe_15","fe_16","fe_17","fe_18","fe_19","fe_20"
-    ]
-
-    input_df[num_cols] = scaler.fit_transform(input_df[num_cols])
-
-    return input_df
-
-
-# %%
 X_train_processed = process_features(X_train)
 X_test_processed = process_features(X_test)
 X_oot_processed = process_features(X_oot)
@@ -211,13 +148,9 @@ print('X_train_processed', X_train_processed.shape[0])
 print('X_test_processed', X_test_processed.shape[0])
 print('X_oot_processed', X_oot_processed.shape[0])
 
-pd.DataFrame(X_train_processed)
-
 # %%
-from sklearn.metrics import make_scorer, roc_auc_score
-from sklearn.model_selection import RandomizedSearchCV
 
-
+# Training
 
 # Define the XGBoost classifier
 xgb_clf = xgb.XGBClassifier(eval_metric='logloss', random_state=88)
@@ -280,6 +213,8 @@ print("Test GINI score: ", round(2*test_auc_score-1,3))
 print("OOT GINI score: ", round(2*oot_auc_score-1,3))
 
 # %%
+
+# Create model artefact
 scaler=StandardScaler()
 
 model_artefact = {}
@@ -310,13 +245,13 @@ model_artefact['hp_params'] = random_search.best_params_
 pprint.pprint(model_artefact)
 
 # %%
-# create model_bank dir
+
+# save to model_bank dir
 model_bank_directory = "model_bank/"
 
 if not os.path.exists(model_bank_directory):
     os.makedirs(model_bank_directory)
 
-# %%
 import pickle
 
 # Full path to the file
@@ -328,12 +263,4 @@ with open(file_path, 'wb') as file:
     pickle.dump(model_artefact, file)
 
 print(f"Model saved to {file_path}")
-
-
-# %%
-
-
-# %%
-
-
 
