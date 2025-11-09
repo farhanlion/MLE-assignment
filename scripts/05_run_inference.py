@@ -28,7 +28,7 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # %%
 # config
-snapshot_date_str = "2024-12-01"
+snapshot_date_str = "2024-11-01"
 model_name = "xgb_credit_model_2024_09_01.pkl"
 
 config = {}
@@ -85,7 +85,7 @@ y_inference_pdf["model_predictions"] = y_inference
 
 # %%
 # save model inference to a gold table, model_predictions
-gold_directory = f"datamart/gold/model_predictions/"
+gold_directory = f"/app/datamart/gold/model_predictions/"
 print(gold_directory)
 if not os.path.exists(gold_directory):
     os.makedirs(gold_directory)
@@ -95,3 +95,5 @@ partition_name = config["model_name"][:-4] + "_predictions_" + snapshot_date_str
 filepath = gold_directory + partition_name
 spark.createDataFrame(y_inference_pdf).write.mode("overwrite").parquet(filepath)
 print('saved to:', filepath)
+
+

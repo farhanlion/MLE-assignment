@@ -20,19 +20,18 @@ predictions_directory = "/app/datamart/gold/model_predictions/"
 files_list = [predictions_directory+os.path.basename(f) for f in glob.glob(os.path.join(predictions_directory, '*'))]
 df_predictions = spark.read.option("header", "true").parquet(*files_list)
 print("predictions:")
-
+df_predictions.show()
 # Load Gold Features
 gold_label_directory = "/app/datamart/gold/label_store/"
 files_list = [gold_label_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_label_directory, '*'))]
 label_df = spark.read.option("header", "true").parquet(*files_list)
 print("True labels:")
-
-# load features (same snapshot granularity as predictions)
-features_dir = "/app/datamart/gold/feature_store/"
-files = [features_dir + os.path.basename(f) for f in glob.glob(os.path.join(features_dir, '*'))]
-df_features = spark.read.parquet(*files)
+label_df.show()
+# Load Features
+gold_feature_directory = "/app/datamart/gold/feature_store/"
+df_features = spark.read.option("header", "true").parquet(gold_feature_directory)
 print("Features:")
-
+df_features.show()
 # %%
 label_df.groupBy("snapshot_date") \
         .agg(F.count("*").alias("count")) \
@@ -66,7 +65,9 @@ from scipy.stats import ks_2samp
 baseline = merged_df.filter(F.col("snapshot_date") == "2024-11-01").toPandas()
 current  = merged_df.filter(F.col("snapshot_date") == "2024-12-01").toPandas()
 
-for col in ["Annual_Income","Num_of_Loan","Credit_History_Age","fe_1","fe_2","fe_3"]:
+
+
+for col in ["Annual_Income","Num_of_Loan","Credit_History_Age","fe_1_5m_avg","fe_2_5m_avg","fe_3_5m_avg"]:
     stat, p = ks_2samp(baseline[col].dropna(), current[col].dropna())
     print(col, "KS stat:", stat, "p-value:", p)
 

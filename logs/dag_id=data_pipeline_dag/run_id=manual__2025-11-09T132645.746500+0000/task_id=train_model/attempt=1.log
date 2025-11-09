@@ -1,0 +1,198 @@
+[2025-11-09T13:28:03.189+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T13:28:03.203+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T13:26:45.746500+00:00 [queued]>
+[2025-11-09T13:28:03.215+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T13:26:45.746500+00:00 [queued]>
+[2025-11-09T13:28:03.216+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-11-09T13:28:03.241+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): train_model> on 2025-11-09 13:26:45.746500+00:00
+[2025-11-09T13:28:03.245+0000] {standard_task_runner.py:72} INFO - Started process 12619 to run task
+[2025-11-09T13:28:03.249+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'data_pipeline_dag', 'train_model', 'manual__2025-11-09T13:26:45.746500+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_dag.py', '--cfg-path', '/tmp/tmps_txxzjg']
+[2025-11-09T13:28:03.251+0000] {standard_task_runner.py:105} INFO - Job 55: Subtask train_model
+[2025-11-09T13:28:03.314+0000] {task_command.py:467} INFO - Running <TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T13:26:45.746500+00:00 [running]> on host 7468da456d69
+[2025-11-09T13:28:03.393+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_pipeline_dag' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T13:26:45.746500+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T13:26:45.746500+00:00'
+[2025-11-09T13:28:03.394+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T13:28:03.406+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T13:28:03.407+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/04_train_model.py']
+[2025-11-09T13:28:03.416+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T13:28:05.464+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T13:28:05.466+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T13:28:05.688+0000] {subprocess.py:93} INFO - 25/11/09 13:28:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T13:28:13.626+0000] {subprocess.py:93} INFO - [Stage 0:======================================>                 (24 + 11) / 35]                                                                                [Stage 2:==============>                                           (3 + 9) / 12]                                                                                {'model_train_date': datetime.datetime(2024, 9, 1, 0, 0),
+[2025-11-09T13:28:13.628+0000] {subprocess.py:93} INFO -  'model_train_date_str': '2024-09-01',
+[2025-11-09T13:28:13.629+0000] {subprocess.py:93} INFO -  'oot_end_date': datetime.datetime(2024, 8, 31, 0, 0),
+[2025-11-09T13:28:13.630+0000] {subprocess.py:93} INFO -  'oot_period_months': 2,
+[2025-11-09T13:28:13.630+0000] {subprocess.py:93} INFO -  'oot_start_date': datetime.datetime(2024, 7, 1, 0, 0),
+[2025-11-09T13:28:13.631+0000] {subprocess.py:93} INFO -  'train_test_end_date': datetime.datetime(2024, 6, 30, 0, 0),
+[2025-11-09T13:28:13.632+0000] {subprocess.py:93} INFO -  'train_test_period_months': 12,
+[2025-11-09T13:28:13.632+0000] {subprocess.py:93} INFO -  'train_test_ratio': 0.8,
+[2025-11-09T13:28:13.634+0000] {subprocess.py:93} INFO -  'train_test_start_date': datetime.datetime(2023, 7, 1, 0, 0)}
+[2025-11-09T13:28:13.634+0000] {subprocess.py:93} INFO - extracted df_labels 6443 2023-07-01 00:00:00 2024-08-31 00:00:00
+[2025-11-09T13:28:13.635+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T13:28:13.637+0000] {subprocess.py:93} INFO - |             loan_id|Customer_ID|label| label_def|snapshot_date|
+[2025-11-09T13:28:13.638+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T13:28:13.640+0000] {subprocess.py:93} INFO - |CUS_0x1037_2023_0...| CUS_0x1037|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.641+0000] {subprocess.py:93} INFO - |CUS_0x1069_2023_0...| CUS_0x1069|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.643+0000] {subprocess.py:93} INFO - |CUS_0x114a_2023_0...| CUS_0x114a|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.644+0000] {subprocess.py:93} INFO - |CUS_0x1184_2023_0...| CUS_0x1184|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.647+0000] {subprocess.py:93} INFO - |CUS_0x1297_2023_0...| CUS_0x1297|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.648+0000] {subprocess.py:93} INFO - |CUS_0x12fb_2023_0...| CUS_0x12fb|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.650+0000] {subprocess.py:93} INFO - |CUS_0x1325_2023_0...| CUS_0x1325|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.651+0000] {subprocess.py:93} INFO - |CUS_0x1341_2023_0...| CUS_0x1341|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.652+0000] {subprocess.py:93} INFO - |CUS_0x1375_2023_0...| CUS_0x1375|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.654+0000] {subprocess.py:93} INFO - |CUS_0x13a8_2023_0...| CUS_0x13a8|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.655+0000] {subprocess.py:93} INFO - |CUS_0x13ef_2023_0...| CUS_0x13ef|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.656+0000] {subprocess.py:93} INFO - |CUS_0x1440_2023_0...| CUS_0x1440|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.657+0000] {subprocess.py:93} INFO - |CUS_0x1443_2023_0...| CUS_0x1443|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.658+0000] {subprocess.py:93} INFO - |CUS_0x145a_2023_0...| CUS_0x145a|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.659+0000] {subprocess.py:93} INFO - |CUS_0x1492_2023_0...| CUS_0x1492|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.660+0000] {subprocess.py:93} INFO - |CUS_0x153d_2023_0...| CUS_0x153d|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.661+0000] {subprocess.py:93} INFO - |CUS_0x1567_2023_0...| CUS_0x1567|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.662+0000] {subprocess.py:93} INFO - |CUS_0x15ad_2023_0...| CUS_0x15ad|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.663+0000] {subprocess.py:93} INFO - |CUS_0x1630_2023_0...| CUS_0x1630|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.664+0000] {subprocess.py:93} INFO - |CUS_0x169c_2023_0...| CUS_0x169c|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T13:28:13.665+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T13:28:13.666+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T13:28:13.667+0000] {subprocess.py:93} INFO - 
+[2025-11-09T13:28:13.668+0000] {subprocess.py:93} INFO - extracted df_features 125636 2023-07-01 00:00:00 2024-08-31 00:00:00
+[2025-11-09T13:28:13.669+0000] {subprocess.py:93} INFO - +-----------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+
+[2025-11-09T13:28:13.670+0000] {subprocess.py:93} INFO - |Customer_ID|Annual_Income|Monthly_Inhand_Salary|Num_Bank_Accounts|Num_Credit_Card|Interest_Rate|Num_of_Loan|Delay_from_due_date|Num_of_Delayed_Payment|Changed_Credit_Limit|Num_Credit_Inquiries|Credit_Mix|Credit_Utilization_Ratio|   Payment_Behaviour|Credit_History_Age|  Occupation|fe_1_5m_avg|fe_2_5m_avg|fe_3_5m_avg|fe_4_5m_avg|fe_5_5m_avg|fe_6_5m_avg|fe_7_5m_avg|fe_8_5m_avg|fe_9_5m_avg|fe_10_5m_avg|fe_11_5m_avg|fe_12_5m_avg|fe_13_5m_avg|fe_14_5m_avg|fe_15_5m_avg|fe_16_5m_avg|fe_17_5m_avg|fe_18_5m_avg|fe_19_5m_avg|fe_20_5m_avg|snapshot_date|
+[2025-11-09T13:28:13.671+0000] {subprocess.py:93} INFO - +-----------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+
+[2025-11-09T13:28:13.672+0000] {subprocess.py:93} INFO - | CUS_0x565d|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|      100.4|       17.0|      111.0|      185.0|       81.8|       54.4|      189.8|      167.0|      126.8|       135.8|        82.4|       158.4|        82.8|        48.4|        96.4|       148.8|       166.4|        25.8|       160.2|        58.8|   2024-07-01|
+[2025-11-09T13:28:13.673+0000] {subprocess.py:93} INFO - | CUS_0x9124|     52561.62|             4572.135|              8.0|            8.0|         32.0|        2.0|               30.0|                  18.0|               11.63|                 9.0|  Standard|               29.162098|Low_spent_Large_v...|               188|Entrepreneur|      160.8|      119.2|      163.2|      102.2|      172.0|       61.0|      165.4|      140.8|      187.0|        77.4|        72.0|        46.0|       132.0|       121.8|       107.4|        64.2|        67.0|        95.4|       122.2|        55.4|   2024-07-01|
+[2025-11-09T13:28:13.673+0000] {subprocess.py:93} INFO - | CUS_0x1bf1|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|       93.8|       16.0|      129.8|       79.0|      200.6|       64.0|       98.4|      106.6|      145.0|       101.4|       105.2|       114.8|       118.0|       120.8|       153.2|        78.2|       105.2|        29.6|       141.0|       145.8|   2024-07-01|
+[2025-11-09T13:28:13.674+0000] {subprocess.py:93} INFO - | CUS_0xc0c8|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|      135.2|       35.2|      142.4|       33.0|       99.6|      113.4|       57.6|      177.8|      193.0|        75.4|        97.2|       136.2|       115.4|        78.2|        11.4|        69.8|        52.2|       123.6|       -10.0|        74.6|   2024-07-01|
+[2025-11-09T13:28:13.675+0000] {subprocess.py:93} INFO - | CUS_0x3007|     8664.405|            872.03375|              6.0|            7.0|         13.0|        4.0|               30.0|                  19.0|                15.0|                11.0|  Standard|               23.816328|Low_spent_Medium_...|               154|  Journalist|      144.6|       35.8|       92.0|      170.0|       55.8|       72.6|      140.2|       88.2|       59.4|       179.4|       104.4|       171.0|        62.2|       179.4|        91.0|       152.8|        92.2|       101.4|        55.4|        60.2|   2024-07-01|
+[2025-11-09T13:28:13.676+0000] {subprocess.py:93} INFO - | CUS_0x350e|    106154.46|             8961.205|              1.0|            2.0|         10.0|        1.0|               11.0|                   1.0|                5.38|                 2.0|      Good|               35.602554|Low_spent_Medium_...|               281|    Mechanic|      121.8|      134.2|       54.2|       77.4|       51.8|      103.2|      119.4|      149.6|      174.6|        76.4|        94.4|       167.6|       110.2|       179.8|        61.0|       113.6|        43.8|        74.6|       129.2|        67.4|   2024-07-01|
+[2025-11-09T13:28:13.676+0000] {subprocess.py:93} INFO - | CUS_0xb1f8|     95858.31|            8019.1924|              3.0|            6.0|          6.0|        2.0|               25.0|                   8.0|                6.89|                 3.0|         _|                36.70808|             Unknown|               300|      Writer|       57.8|      101.2|      126.0|      154.6|       66.0|      158.2|       72.4|      186.4|      100.8|        72.0|        40.8|       136.0|        26.4|        81.2|        59.8|       104.6|       102.6|       133.0|        80.6|        99.4|   2024-07-01|
+[2025-11-09T13:28:13.677+0000] {subprocess.py:93} INFO - | CUS_0x6514|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|      106.4|      122.8|       87.4|       36.8|       68.0|       96.8|      128.0|      140.0|      141.0|       130.6|        95.8|       145.4|        57.4|       144.4|       223.6|        67.8|       143.4|       119.6|       152.4|        30.2|   2024-07-01|
+[2025-11-09T13:28:13.678+0000] {subprocess.py:93} INFO - | CUS_0xaf3b|     14675.83|            1330.9858|              6.0|            3.0|         12.0|        7.0|               27.0|                   8.0|               12.12|                 6.0|         _|               27.833513|Low_spent_Small_v...|               154|      Lawyer|      172.8|      129.4|       76.4|      141.6|       45.0|      156.6|       98.2|       73.2|      127.4|        89.0|        53.4|        40.8|         9.2|       144.4|       125.2|       108.8|        68.2|       124.4|        69.0|        71.0|   2024-07-01|
+[2025-11-09T13:28:13.679+0000] {subprocess.py:93} INFO - | CUS_0x22f8|     89417.16|              7170.43|              7.0|            4.0|         19.0|        0.0|               22.0|                  12.0|               14.97|                 4.0|  Standard|               38.874756|Low_spent_Medium_...|               310|   Developer|       73.6|       63.4|      170.0|       77.6|      125.2|       28.0|      154.6|      172.2|      146.6|       128.8|       146.6|       163.6|       144.0|       146.6|        96.8|       132.8|        94.6|        82.6|        64.0|        97.2|   2024-07-01|
+[2025-11-09T13:28:13.680+0000] {subprocess.py:93} INFO - | CUS_0x8f16|     33717.92|            2952.8267|             10.0|            9.0|         17.0|        7.0|               51.0|                  15.0|                6.03|                12.0|       Bad|               25.237524|Low_spent_Small_v...|               132|Entrepreneur|       64.6|       79.8|       37.6|       97.8|       81.2|        2.8|      128.4|      125.6|       76.6|       129.2|       108.0|        84.4|        97.4|        89.6|        98.2|       189.8|       153.4|       108.0|       135.6|       190.4|   2024-07-01|
+[2025-11-09T13:28:13.681+0000] {subprocess.py:93} INFO - | CUS_0x47fe|      7085.39|            611.73486|              9.0|            7.0|         16.0|        6.0|               51.0|                  18.0|               22.03|                10.0|       Bad|               22.921326|Low_spent_Small_v...|               164|     Teacher|      160.4|      112.0|      156.2|       42.0|      188.2|      109.4|      112.6|       85.8|       45.2|       156.2|        91.8|        61.4|        62.4|       118.4|       168.2|       132.2|        20.4|       104.0|       141.0|       160.8|   2024-07-01|
+[2025-11-09T13:28:13.681+0000] {subprocess.py:93} INFO - |  CUS_0x810|     68470.86|             5884.905|              7.0|            4.0|         12.0|        5.0|               18.0|                  12.0|               18.49|                10.0|  Standard|                36.30424|High_spent_Large_...|               202|  Accountant|       55.6|       59.8|      119.4|       46.8|       75.8|      102.2|       53.2|       93.8|      139.0|        80.8|       141.6|       110.2|       129.8|        96.2|        52.2|       119.4|       144.8|       -17.6|        60.4|       157.8|   2024-07-01|
+[2025-11-09T13:28:13.682+0000] {subprocess.py:93} INFO - | CUS_0xbf53|      42474.2|            3658.5166|              2.0|            3.0|          8.0|        4.0|               28.0|                   9.0|               10.57|                 5.0|      Good|               25.768934|High_spent_Medium...|               212|     Teacher|      126.0|      172.0|       94.8|       81.2|       83.0|      158.6|       41.8|      101.4|       89.4|       133.8|        55.6|       117.8|       190.8|       121.8|       124.0|        62.6|        44.8|       108.0|       137.6|       169.0|   2024-07-01|
+[2025-11-09T13:28:13.683+0000] {subprocess.py:93} INFO - | CUS_0x18b9|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|       64.4|      139.6|      122.4|       92.6|      106.4|      126.2|      -14.8|      115.4|       87.8|        98.0|       103.0|        10.0|        98.0|        65.8|        48.8|        95.8|       100.0|       108.4|        80.2|       125.2|   2024-07-01|
+[2025-11-09T13:28:13.684+0000] {subprocess.py:93} INFO - | CUS_0x6ead|     69102.09|            6027.5073|              8.0|            3.0|         15.0|        1.0|               10.0|                  15.0|               18.85|                 5.0|  Standard|                29.51043|High_spent_Large_...|               249|    Mechanic|      111.4|      125.6|      138.8|      107.2|      117.4|      124.8|      115.8|       60.6|        9.6|       145.8|        76.2|       111.4|       127.4|       128.8|       114.8|       107.2|       133.4|       239.6|        69.8|       144.4|   2024-07-01|
+[2025-11-09T13:28:13.685+0000] {subprocess.py:93} INFO - | CUS_0x2796|     8329.915|             660.1596|              8.0|            5.0|         30.0|        8.0|               41.0|                  19.0|                0.79|                12.0|         _|               31.295742|Low_spent_Small_v...|               226|   Scientist|      179.6|       25.2|      102.4|       89.2|      143.2|       24.2|      163.0|      156.4|      221.8|       193.8|        10.4|        98.4|       104.2|        90.4|       100.6|       164.0|       133.6|       175.8|       141.4|       114.4|   2024-07-01|
+[2025-11-09T13:28:13.686+0000] {subprocess.py:93} INFO - | CUS_0x38f1|     16822.58|            1584.8817|              9.0|            6.0|         15.0|        3.0|               28.0|                  26.0|               12.03|                12.0|       Bad|               25.530504|Low_spent_Small_v...|               236|   Scientist|       77.8|       91.4|       22.0|      173.4|      166.8|      172.8|      153.0|       45.4|      150.8|       130.2|        47.2|       166.8|        92.6|        92.4|        90.8|       160.0|        54.2|       183.0|        77.6|        47.6|   2024-07-01|
+[2025-11-09T13:28:13.686+0000] {subprocess.py:93} INFO - | CUS_0x94ae|     14665.31|            1230.1091|              6.0|            6.0|         25.0|        6.0|               35.0|                  17.0|                 2.7|                 9.0|       Bad|                34.95041|Low_spent_Small_v...|                71|Entrepreneur|      141.6|      124.0|      113.0|      120.0|      241.0|      154.0|       78.4|       77.4|      142.2|       223.4|        68.0|       115.0|        45.6|        81.8|        91.6|       158.2|        86.4|        70.8|        96.0|        32.4|   2024-07-01|
+[2025-11-09T13:28:13.687+0000] {subprocess.py:93} INFO - | CUS_0xa8e7|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|        NULL|      118.2|      106.4|       92.8|       46.6|       46.6|      123.8|      115.0|       66.0|      100.0|       136.2|       132.0|       124.0|        69.0|       153.0|       173.8|        97.0|        65.8|       130.2|        87.0|        71.8|   2024-07-01|
+[2025-11-09T13:28:13.688+0000] {subprocess.py:93} INFO - +-----------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+
+[2025-11-09T13:28:13.689+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T13:28:16.183+0000] {subprocess.py:93} INFO - [Stage 20:=========>       (7 + 5) / 12][Stage 21:>                 (0 + 7) / 7][Stage 21:>                                                         (0 + 7) / 7][Stage 21:=========================================>                (5 + 2) / 7]                                                                                /app/utils/data_processing_before_fit.py:10: SettingWithCopyWarning:
+[2025-11-09T13:28:16.184+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2025-11-09T13:28:16.184+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2025-11-09T13:28:16.185+0000] {subprocess.py:93} INFO - 
+[2025-11-09T13:28:16.186+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2025-11-09T13:28:16.187+0000] {subprocess.py:93} INFO -   input_df[c] = input_df[c].replace("_", np.nan)
+[2025-11-09T13:28:16.205+0000] {subprocess.py:93} INFO - 
+[2025-11-09T13:28:16.207+0000] {subprocess.py:93} INFO - Customer_ID nulls: 0 / 125636
+[2025-11-09T13:28:16.208+0000] {subprocess.py:93} INFO - Row count: Customer_ID                 4987
+[2025-11-09T13:28:16.209+0000] {subprocess.py:93} INFO - snapshot_date               4987
+[2025-11-09T13:28:16.210+0000] {subprocess.py:93} INFO - loan_id                     4987
+[2025-11-09T13:28:16.211+0000] {subprocess.py:93} INFO - label                       4987
+[2025-11-09T13:28:16.212+0000] {subprocess.py:93} INFO - label_def                   4987
+[2025-11-09T13:28:16.213+0000] {subprocess.py:93} INFO - Annual_Income               4987
+[2025-11-09T13:28:16.215+0000] {subprocess.py:93} INFO - Monthly_Inhand_Salary       4987
+[2025-11-09T13:28:16.221+0000] {subprocess.py:93} INFO - Num_Bank_Accounts           4987
+[2025-11-09T13:28:16.224+0000] {subprocess.py:93} INFO - Num_Credit_Card             4987
+[2025-11-09T13:28:16.231+0000] {subprocess.py:93} INFO - Interest_Rate               4987
+[2025-11-09T13:28:16.232+0000] {subprocess.py:93} INFO - Num_of_Loan                 4987
+[2025-11-09T13:28:16.238+0000] {subprocess.py:93} INFO - Delay_from_due_date         4987
+[2025-11-09T13:28:16.239+0000] {subprocess.py:93} INFO - Num_of_Delayed_Payment      4987
+[2025-11-09T13:28:16.240+0000] {subprocess.py:93} INFO - Changed_Credit_Limit        4987
+[2025-11-09T13:28:16.242+0000] {subprocess.py:93} INFO - Num_Credit_Inquiries        4987
+[2025-11-09T13:28:16.243+0000] {subprocess.py:93} INFO - Credit_Mix                  4987
+[2025-11-09T13:28:16.244+0000] {subprocess.py:93} INFO - Credit_Utilization_Ratio    4987
+[2025-11-09T13:28:16.245+0000] {subprocess.py:93} INFO - Payment_Behaviour           4987
+[2025-11-09T13:28:16.246+0000] {subprocess.py:93} INFO - Credit_History_Age          4987
+[2025-11-09T13:28:16.247+0000] {subprocess.py:93} INFO - Occupation                  4987
+[2025-11-09T13:28:16.250+0000] {subprocess.py:93} INFO - fe_1_5m_avg                 4987
+[2025-11-09T13:28:16.254+0000] {subprocess.py:93} INFO - fe_2_5m_avg                 4987
+[2025-11-09T13:28:16.258+0000] {subprocess.py:93} INFO - fe_3_5m_avg                 4987
+[2025-11-09T13:28:16.259+0000] {subprocess.py:93} INFO - fe_4_5m_avg                 4987
+[2025-11-09T13:28:16.268+0000] {subprocess.py:93} INFO - fe_5_5m_avg                 4987
+[2025-11-09T13:28:16.272+0000] {subprocess.py:93} INFO - fe_6_5m_avg                 4987
+[2025-11-09T13:28:16.273+0000] {subprocess.py:93} INFO - fe_7_5m_avg                 4987
+[2025-11-09T13:28:16.274+0000] {subprocess.py:93} INFO - fe_8_5m_avg                 4987
+[2025-11-09T13:28:16.275+0000] {subprocess.py:93} INFO - fe_9_5m_avg                 4987
+[2025-11-09T13:28:16.276+0000] {subprocess.py:93} INFO - fe_10_5m_avg                4987
+[2025-11-09T13:28:16.297+0000] {subprocess.py:93} INFO - fe_11_5m_avg                4987
+[2025-11-09T13:28:16.299+0000] {subprocess.py:93} INFO - fe_12_5m_avg                4987
+[2025-11-09T13:28:16.301+0000] {subprocess.py:93} INFO - fe_13_5m_avg                4987
+[2025-11-09T13:28:16.303+0000] {subprocess.py:93} INFO - fe_14_5m_avg                4987
+[2025-11-09T13:28:16.310+0000] {subprocess.py:93} INFO - fe_15_5m_avg                4987
+[2025-11-09T13:28:16.316+0000] {subprocess.py:93} INFO - fe_16_5m_avg                4987
+[2025-11-09T13:28:16.324+0000] {subprocess.py:93} INFO - fe_17_5m_avg                4987
+[2025-11-09T13:28:16.331+0000] {subprocess.py:93} INFO - fe_18_5m_avg                4987
+[2025-11-09T13:28:16.332+0000] {subprocess.py:93} INFO - fe_19_5m_avg                4987
+[2025-11-09T13:28:16.337+0000] {subprocess.py:93} INFO - fe_20_5m_avg                4987
+[2025-11-09T13:28:16.340+0000] {subprocess.py:93} INFO - dtype: int64
+[2025-11-09T13:28:16.345+0000] {subprocess.py:93} INFO - X_train 3396
+[2025-11-09T13:28:16.348+0000] {subprocess.py:93} INFO - X_test 850
+[2025-11-09T13:28:16.349+0000] {subprocess.py:93} INFO - X_oot 741
+[2025-11-09T13:28:16.350+0000] {subprocess.py:93} INFO - y_train 3396 0.27
+[2025-11-09T13:28:16.352+0000] {subprocess.py:93} INFO - y_test 850 0.27
+[2025-11-09T13:28:16.353+0000] {subprocess.py:93} INFO - y_oot 741 0.28
+[2025-11-09T13:28:16.359+0000] {subprocess.py:93} INFO - X_train_processed 3396
+[2025-11-09T13:28:16.359+0000] {subprocess.py:93} INFO - X_test_processed 850
+[2025-11-09T13:28:16.361+0000] {subprocess.py:93} INFO - X_oot_processed 741
+[2025-11-09T13:28:16.362+0000] {subprocess.py:93} INFO - Fitting 3 folds for each of 100 candidates, totalling 300 fits
+[2025-11-09T13:28:21.426+0000] {subprocess.py:93} INFO - Best parameters found:  {'subsample': 0.8, 'reg_lambda': 1, 'reg_alpha': 0, 'n_estimators': 50, 'min_child_weight': 3, 'max_depth': 3, 'learning_rate': 0.1, 'gamma': 0.1, 'colsample_bytree': 0.8}
+[2025-11-09T13:28:21.427+0000] {subprocess.py:93} INFO - Best AUC score:  0.7134459619807295
+[2025-11-09T13:28:21.431+0000] {subprocess.py:93} INFO - Train AUC score:  0.919298326098301
+[2025-11-09T13:28:21.432+0000] {subprocess.py:93} INFO - Test AUC score:  0.859762743567566
+[2025-11-09T13:28:21.433+0000] {subprocess.py:93} INFO - OOT AUC score:  0.8621110214330552
+[2025-11-09T13:28:21.433+0000] {subprocess.py:93} INFO - TRAIN GINI score:  0.839
+[2025-11-09T13:28:21.434+0000] {subprocess.py:93} INFO - Test GINI score:  0.72
+[2025-11-09T13:28:21.434+0000] {subprocess.py:93} INFO - OOT GINI score:  0.724
+[2025-11-09T13:28:21.435+0000] {subprocess.py:93} INFO - {'data_dates': {'model_train_date': datetime.datetime(2024, 9, 1, 0, 0),
+[2025-11-09T13:28:21.435+0000] {subprocess.py:93} INFO -                 'model_train_date_str': '2024-09-01',
+[2025-11-09T13:28:21.436+0000] {subprocess.py:93} INFO -                 'oot_end_date': datetime.datetime(2024, 8, 31, 0, 0),
+[2025-11-09T13:28:21.436+0000] {subprocess.py:93} INFO -                 'oot_period_months': 2,
+[2025-11-09T13:28:21.437+0000] {subprocess.py:93} INFO -                 'oot_start_date': datetime.datetime(2024, 7, 1, 0, 0),
+[2025-11-09T13:28:21.440+0000] {subprocess.py:93} INFO -                 'train_test_end_date': datetime.datetime(2024, 6, 30, 0, 0),
+[2025-11-09T13:28:21.442+0000] {subprocess.py:93} INFO -                 'train_test_period_months': 12,
+[2025-11-09T13:28:21.447+0000] {subprocess.py:93} INFO -                 'train_test_ratio': 0.8,
+[2025-11-09T13:28:21.454+0000] {subprocess.py:93} INFO -                 'train_test_start_date': datetime.datetime(2023, 7, 1, 0, 0)},
+[2025-11-09T13:28:21.466+0000] {subprocess.py:93} INFO -  'data_stats': {'X_oot': 741,
+[2025-11-09T13:28:21.469+0000] {subprocess.py:93} INFO -                 'X_test': 850,
+[2025-11-09T13:28:21.470+0000] {subprocess.py:93} INFO -                 'X_train': 3396,
+[2025-11-09T13:28:21.472+0000] {subprocess.py:93} INFO -                 'y_oot': np.float64(0.28),
+[2025-11-09T13:28:21.472+0000] {subprocess.py:93} INFO -                 'y_test': np.float64(0.27),
+[2025-11-09T13:28:21.473+0000] {subprocess.py:93} INFO -                 'y_train': np.float64(0.27)},
+[2025-11-09T13:28:21.476+0000] {subprocess.py:93} INFO -  'hp_params': {'colsample_bytree': 0.8,
+[2025-11-09T13:28:21.487+0000] {subprocess.py:93} INFO -                'gamma': 0.1,
+[2025-11-09T13:28:21.490+0000] {subprocess.py:93} INFO -                'learning_rate': 0.1,
+[2025-11-09T13:28:21.492+0000] {subprocess.py:93} INFO -                'max_depth': 3,
+[2025-11-09T13:28:21.500+0000] {subprocess.py:93} INFO -                'min_child_weight': 3,
+[2025-11-09T13:28:21.509+0000] {subprocess.py:93} INFO -                'n_estimators': 50,
+[2025-11-09T13:28:21.514+0000] {subprocess.py:93} INFO -                'reg_alpha': 0,
+[2025-11-09T13:28:21.515+0000] {subprocess.py:93} INFO -                'reg_lambda': 1,
+[2025-11-09T13:28:21.516+0000] {subprocess.py:93} INFO -                'subsample': 0.8},
+[2025-11-09T13:28:21.516+0000] {subprocess.py:93} INFO -  'model': XGBClassifier(base_score=None, booster=None, callbacks=None,
+[2025-11-09T13:28:21.529+0000] {subprocess.py:93} INFO -               colsample_bylevel=None, colsample_bynode=None,
+[2025-11-09T13:28:21.537+0000] {subprocess.py:93} INFO -               colsample_bytree=0.8, device=None, early_stopping_rounds=None,
+[2025-11-09T13:28:21.550+0000] {subprocess.py:93} INFO -               enable_categorical=False, eval_metric='logloss',
+[2025-11-09T13:28:21.552+0000] {subprocess.py:93} INFO -               feature_types=None, feature_weights=None, gamma=0.1,
+[2025-11-09T13:28:21.556+0000] {subprocess.py:93} INFO -               grow_policy=None, importance_type=None,
+[2025-11-09T13:28:21.568+0000] {subprocess.py:93} INFO -               interaction_constraints=None, learning_rate=0.1, max_bin=None,
+[2025-11-09T13:28:21.570+0000] {subprocess.py:93} INFO -               max_cat_threshold=None, max_cat_to_onehot=None,
+[2025-11-09T13:28:21.572+0000] {subprocess.py:93} INFO -               max_delta_step=None, max_depth=3, max_leaves=None,
+[2025-11-09T13:28:21.574+0000] {subprocess.py:93} INFO -               min_child_weight=3, missing=nan, monotone_constraints=None,
+[2025-11-09T13:28:21.575+0000] {subprocess.py:93} INFO -               multi_strategy=None, n_estimators=50, n_jobs=None,
+[2025-11-09T13:28:21.584+0000] {subprocess.py:93} INFO -               num_parallel_tree=None, ...),
+[2025-11-09T13:28:21.587+0000] {subprocess.py:93} INFO -  'model_name': 'xgb',
+[2025-11-09T13:28:21.588+0000] {subprocess.py:93} INFO -  'model_version': 'credit_model_2024_09_01',
+[2025-11-09T13:28:21.588+0000] {subprocess.py:93} INFO -  'preprocessing_transformers': {'stdscaler': StandardScaler()},
+[2025-11-09T13:28:21.589+0000] {subprocess.py:93} INFO -  'results': {'auc_oot': np.float64(0.8621110214330552),
+[2025-11-09T13:28:21.590+0000] {subprocess.py:93} INFO -              'auc_test': np.float64(0.859762743567566),
+[2025-11-09T13:28:21.591+0000] {subprocess.py:93} INFO -              'auc_train': np.float64(0.919298326098301),
+[2025-11-09T13:28:21.592+0000] {subprocess.py:93} INFO -              'gini_oot': np.float64(0.724),
+[2025-11-09T13:28:21.593+0000] {subprocess.py:93} INFO -              'gini_test': np.float64(0.72),
+[2025-11-09T13:28:21.594+0000] {subprocess.py:93} INFO -              'gini_train': np.float64(0.839)}}
+[2025-11-09T13:28:21.595+0000] {subprocess.py:93} INFO - Model saved to /app/model_bank/xgb_credit_model_2024_09_01.pkl
+[2025-11-09T13:28:22.523+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-09T13:28:22.560+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T13:28:22.561+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=data_pipeline_dag, task_id=train_model, run_id=manual__2025-11-09T13:26:45.746500+00:00, execution_date=20251109T132645, start_date=20251109T132803, end_date=20251109T132822
+[2025-11-09T13:28:22.631+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T13:28:22.644+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T13:28:22.646+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

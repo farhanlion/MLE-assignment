@@ -252,7 +252,7 @@ import pickle
 
 # Full path to the file
 file_name = f"{model_artefact['model_name']}_{model_artefact['model_version']}.pkl"
-file_path = os.path.join("model_bank/", file_name)
+file_path = os.path.join("/app/model_bank/", file_name)
 
 # Write the model to a pickle file
 with open(file_path, 'wb') as file:
