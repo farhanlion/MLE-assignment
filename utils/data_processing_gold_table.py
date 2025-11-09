@@ -11,6 +11,8 @@ import pyspark
 import pyspark.sql.functions as F
 import argparse
 import re
+from pyspark.sql import functions as F
+from pyspark.sql.functions import col, to_date, add_months
 
 from pyspark.sql.functions import col
 from pyspark.sql.types import StringType, IntegerType, FloatType, DateType
@@ -75,6 +77,7 @@ def process_features_gold_table(silver_attr_directory, silver_fin_directory, bro
         df_fin = df_fin.drop("Type_of_Loan")
         # Calculate null percentages
         rows = df_fin.count()
+
         nulls = df_fin.select([
             (F.count(F.when(F.col(c).isNull(), c)) / rows * 100).alias(c)
             for c in df_fin.columns
@@ -93,7 +96,6 @@ def process_features_gold_table(silver_attr_directory, silver_fin_directory, bro
         # Drop the rest of the NAs
         df_fin = df_fin.dropna()    
         
-        
         df_click = spark.read.csv(bronze_clickstream_directory, header=True, inferSchema=True)
     
         # 1️⃣ Join finance + attribute (both share the same snapshot_date)
@@ -102,22 +104,34 @@ def process_features_gold_table(silver_attr_directory, silver_fin_directory, bro
         # 2️⃣ Drop their snapshot_date — we’ll use the one from clickstream
         df_fin_attr = df_fin_attr.drop("snapshot_date")
         
+        fe = [f"fe_{i}" for i in range(1, 21)]
+        c, p = df_click.alias("c"), df_click.alias("p")
+
+        cond = (
+            (col("c.Customer_ID") == col("p.Customer_ID")) &
+            (col("p.snapshot_date") >= add_months(col("c.snapshot_date"), -4)) &
+            (col("p.snapshot_date") <= col("c.snapshot_date"))
+        )
+
+        j = c.join(p, cond)
+
+        avg_expr = [F.avg(col(f"p.{f}")).alias(f"{f}_5m_avg") for f in fe]
+
+        click_5m = (
+            j.groupBy(col("c.Customer_ID").alias("Customer_ID"), col("c.snapshot_date").alias("snapshot_date"))
+            .agg(*avg_expr)
+        )
+
         # 3️⃣ Join with clickstream (keeping all customers from df_click)
-        merged_df = df_fin_attr.join(df_click, ["Customer_ID"], "right")
-    
+        merged_df = df_fin_attr.join(click_5m, ["Customer_ID"], "right")
+        merged_df.show()
         # --- Write by snapshot_date ---
-        snapshot_dates = [r["snapshot_date"] for r in merged_df.select("snapshot_date").distinct().collect()]
-        print(f"[GOLD/FE] Found {len(snapshot_dates)} snapshot dates to save.")
-    
-        for s_date in snapshot_dates:
-            s_date_str = s_date.strftime("%Y_%m_%d")
-            out_path = os.path.join(gold_feature_store_directory, f"gold_feature_store_{s_date_str}.parquet")
-            print(f"[GOLD/FE] Writing snapshot {s_date_str} to {out_path}")
-    
-            df_snapshot = merged_df.filter(F.col("snapshot_date") == s_date)
-            df_snapshot.write.mode("overwrite").parquet(out_path)
-    
-        print(f"[GOLD/FE] Finished writing feature gold tables to {gold_feature_store_directory}")
+        merged_df.repartition("snapshot_date") \
+        .write.mode("overwrite") \
+        .partitionBy("snapshot_date") \
+        .parquet(gold_feature_store_directory)
+        print("Written to gold/datamert/featurestore")
+
         return merged_df
         
 

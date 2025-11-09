@@ -1,0 +1,186 @@
+[2025-11-09T12:32:23.602+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T12:32:23.615+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T12:27:00.362859+00:00 [queued]>
+[2025-11-09T12:32:23.624+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T12:27:00.362859+00:00 [queued]>
+[2025-11-09T12:32:23.625+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 2
+[2025-11-09T12:32:23.649+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): train_model> on 2025-11-09 12:27:00.362859+00:00
+[2025-11-09T12:32:23.653+0000] {standard_task_runner.py:72} INFO - Started process 3600 to run task
+[2025-11-09T12:32:23.656+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'data_pipeline_dag', 'train_model', 'manual__2025-11-09T12:27:00.362859+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline_dag.py', '--cfg-path', '/tmp/tmpaplkot3l']
+[2025-11-09T12:32:23.658+0000] {standard_task_runner.py:105} INFO - Job 41: Subtask train_model
+[2025-11-09T12:32:23.723+0000] {task_command.py:467} INFO - Running <TaskInstance: data_pipeline_dag.train_model manual__2025-11-09T12:27:00.362859+00:00 [running]> on host 7468da456d69
+[2025-11-09T12:32:23.795+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_pipeline_dag' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T12:27:00.362859+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T12:27:00.362859+00:00'
+[2025-11-09T12:32:23.796+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T12:32:23.806+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T12:32:23.807+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/04_train_model.py']
+[2025-11-09T12:32:23.813+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T12:32:25.989+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T12:32:25.990+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T12:32:26.162+0000] {subprocess.py:93} INFO - 25/11/09 12:32:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T12:32:35.004+0000] {subprocess.py:93} INFO - [Stage 2:==============>                                           (3 + 9) / 12]                                                                                {'model_train_date': datetime.datetime(2024, 9, 1, 0, 0),
+[2025-11-09T12:32:35.005+0000] {subprocess.py:93} INFO -  'model_train_date_str': '2024-09-01',
+[2025-11-09T12:32:35.008+0000] {subprocess.py:93} INFO -  'oot_end_date': datetime.datetime(2024, 8, 31, 0, 0),
+[2025-11-09T12:32:35.009+0000] {subprocess.py:93} INFO -  'oot_period_months': 2,
+[2025-11-09T12:32:35.010+0000] {subprocess.py:93} INFO -  'oot_start_date': datetime.datetime(2024, 7, 1, 0, 0),
+[2025-11-09T12:32:35.011+0000] {subprocess.py:93} INFO -  'train_test_end_date': datetime.datetime(2024, 6, 30, 0, 0),
+[2025-11-09T12:32:35.012+0000] {subprocess.py:93} INFO -  'train_test_period_months': 12,
+[2025-11-09T12:32:35.013+0000] {subprocess.py:93} INFO -  'train_test_ratio': 0.8,
+[2025-11-09T12:32:35.014+0000] {subprocess.py:93} INFO -  'train_test_start_date': datetime.datetime(2023, 7, 1, 0, 0)}
+[2025-11-09T12:32:35.016+0000] {subprocess.py:93} INFO - extracted df_labels 6443 2023-07-01 00:00:00 2024-08-31 00:00:00
+[2025-11-09T12:32:35.016+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T12:32:35.017+0000] {subprocess.py:93} INFO - |             loan_id|Customer_ID|label| label_def|snapshot_date|
+[2025-11-09T12:32:35.018+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T12:32:35.019+0000] {subprocess.py:93} INFO - |CUS_0x1037_2023_0...| CUS_0x1037|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.020+0000] {subprocess.py:93} INFO - |CUS_0x1069_2023_0...| CUS_0x1069|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.021+0000] {subprocess.py:93} INFO - |CUS_0x114a_2023_0...| CUS_0x114a|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.022+0000] {subprocess.py:93} INFO - |CUS_0x1184_2023_0...| CUS_0x1184|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.023+0000] {subprocess.py:93} INFO - |CUS_0x1297_2023_0...| CUS_0x1297|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.024+0000] {subprocess.py:93} INFO - |CUS_0x12fb_2023_0...| CUS_0x12fb|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.025+0000] {subprocess.py:93} INFO - |CUS_0x1325_2023_0...| CUS_0x1325|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.026+0000] {subprocess.py:93} INFO - |CUS_0x1341_2023_0...| CUS_0x1341|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.027+0000] {subprocess.py:93} INFO - |CUS_0x1375_2023_0...| CUS_0x1375|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.028+0000] {subprocess.py:93} INFO - |CUS_0x13a8_2023_0...| CUS_0x13a8|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.029+0000] {subprocess.py:93} INFO - |CUS_0x13ef_2023_0...| CUS_0x13ef|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.030+0000] {subprocess.py:93} INFO - |CUS_0x1440_2023_0...| CUS_0x1440|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.031+0000] {subprocess.py:93} INFO - |CUS_0x1443_2023_0...| CUS_0x1443|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.032+0000] {subprocess.py:93} INFO - |CUS_0x145a_2023_0...| CUS_0x145a|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.033+0000] {subprocess.py:93} INFO - |CUS_0x1492_2023_0...| CUS_0x1492|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.035+0000] {subprocess.py:93} INFO - |CUS_0x153d_2023_0...| CUS_0x153d|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.036+0000] {subprocess.py:93} INFO - |CUS_0x1567_2023_0...| CUS_0x1567|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.037+0000] {subprocess.py:93} INFO - |CUS_0x15ad_2023_0...| CUS_0x15ad|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.038+0000] {subprocess.py:93} INFO - |CUS_0x1630_2023_0...| CUS_0x1630|    1|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.039+0000] {subprocess.py:93} INFO - |CUS_0x169c_2023_0...| CUS_0x169c|    0|90dpd_7mob|   2023-08-01|
+[2025-11-09T12:32:35.040+0000] {subprocess.py:93} INFO - +--------------------+-----------+-----+----------+-------------+
+[2025-11-09T12:32:35.041+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T12:32:35.042+0000] {subprocess.py:93} INFO - 
+[2025-11-09T12:32:35.043+0000] {subprocess.py:93} INFO - extracted df_features 22524 2023-07-01 00:00:00 2024-08-31 00:00:00
+[2025-11-09T12:32:35.043+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+[2025-11-09T12:32:35.044+0000] {subprocess.py:93} INFO - |Customer_ID|snapshot_date|Annual_Income|Monthly_Inhand_Salary|Num_Bank_Accounts|Num_Credit_Card|Interest_Rate|Num_of_Loan|Delay_from_due_date|Num_of_Delayed_Payment|Changed_Credit_Limit|Num_Credit_Inquiries|Credit_Mix|Credit_Utilization_Ratio|   Payment_Behaviour|Credit_History_Age|   Occupation|fe_1_5m_avg|fe_2_5m_avg|fe_3_5m_avg|fe_4_5m_avg|fe_5_5m_avg|fe_6_5m_avg|fe_7_5m_avg|fe_8_5m_avg|fe_9_5m_avg|fe_10_5m_avg|fe_11_5m_avg|fe_12_5m_avg|fe_13_5m_avg|fe_14_5m_avg|fe_15_5m_avg|fe_16_5m_avg|fe_17_5m_avg|fe_18_5m_avg|fe_19_5m_avg|fe_20_5m_avg|
+[2025-11-09T12:32:35.045+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+[2025-11-09T12:32:35.045+0000] {subprocess.py:93} INFO - | CUS_0x6ba9|   2024-08-01|     20272.23|            1776.3525|              4.0|            3.0|         12.0|        1.0|               -1.0|                   5.0|                4.83|                 6.0|      Good|                  33.874|High_spent_Medium...|               332|       Lawyer|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.046+0000] {subprocess.py:93} INFO - | CUS_0x74c7|   2024-08-01|     87853.56|              7527.13|              4.0|            1.0|          4.0|        2.0|                2.0|                   2.0|                9.99|                 4.0|      Good|               27.837519|High_spent_Large_...|               208|   Unemployed|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.047+0000] {subprocess.py:93} INFO - |  CUS_0xc65|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.048+0000] {subprocess.py:93} INFO - | CUS_0x5a8b|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.052+0000] {subprocess.py:93} INFO - | CUS_0x78d3|   2024-08-01|    17773.775|             1388.148|              3.0|            1.0|          2.0|        2.0|                5.0|                   2.0|                4.57|                 4.0|      Good|               31.760332|Low_spent_Small_v...|               318|   Journalist|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.054+0000] {subprocess.py:93} INFO - | CUS_0x7f5d|   2024-08-01|     20615.79|            1761.9825|              7.0|            7.0|         21.0|        7.0|               56.0|                  13.0|               10.01|                 8.0|  Standard|                37.84495|Low_spent_Small_v...|               148|      Teacher|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.055+0000] {subprocess.py:93} INFO - | CUS_0x8eb2|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.056+0000] {subprocess.py:93} INFO - |  CUS_0xf6c|   2024-08-01|     76046.25|            6082.1875|              7.0|            3.0|         16.0|        3.0|               17.0|                  19.0|                3.29|                 9.0|  Standard|               22.548635|Low_spent_Small_v...|               368|       Writer|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.057+0000] {subprocess.py:93} INFO - | CUS_0x7e24|   2024-08-01|     49854.92|            4216.5767|              8.0|            3.0|         17.0|        3.0|               17.0|                  18.0|                8.07|                 5.0|  Standard|               38.213825|             Unknown|               218|Media_Manager|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.058+0000] {subprocess.py:93} INFO - | CUS_0xc65a|   2024-08-01|     33588.38|            2623.0317|              2.0|            1.0|         12.0|        2.0|                0.0|                  11.0|                8.24|                 4.0|      Good|               23.830828|High_spent_Large_...|               324|Media_Manager|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.059+0000] {subprocess.py:93} INFO - |  CUS_0xebe|   2024-08-01|     28286.24|            2273.1868|              4.0|            7.0|          7.0|        1.0|               21.0|                  13.0|               11.99|                 4.0|  Standard|               28.700365|High_spent_Medium...|               356|   Journalist|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.059+0000] {subprocess.py:93} INFO - | CUS_0x1ed5|   2024-08-01|     18965.35|            1317.4458|             10.0|            7.0|         20.0|        3.0|               21.0|                  18.0|                7.33|                 6.0|       Bad|               27.237741|Low_spent_Small_v...|                96|      Teacher|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.060+0000] {subprocess.py:93} INFO - | CUS_0x5479|   2024-08-01|     29365.12|            2524.0933|              5.0|            5.0|         12.0|        1.0|               11.0|                  11.0|                7.04|                 5.0|         _|               25.221605|Low_spent_Large_v...|               316|     Musician|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.065+0000] {subprocess.py:93} INFO - | CUS_0x7e8d|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.066+0000] {subprocess.py:93} INFO - | CUS_0xb38d|   2024-08-01|     18409.79|            1594.1492|              7.0|           10.0|         16.0|        5.0|               33.0|                  25.0|                5.16|                11.0|       Bad|                33.87914|Low_spent_Small_v...|               111|      Teacher|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.066+0000] {subprocess.py:93} INFO - | CUS_0xafeb|   2024-08-01|     15910.33|            1111.8608|              8.0|            8.0|         21.0|        9.0|               16.0|                  16.0|               15.26|                 8.0|         _|               30.943031|High_spent_Medium...|               170|      Manager|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.067+0000] {subprocess.py:93} INFO - | CUS_0x1b0f|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.068+0000] {subprocess.py:93} INFO - | CUS_0x834f|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.068+0000] {subprocess.py:93} INFO - | CUS_0x856b|   2024-08-01|         NULL|                 NULL|             NULL|           NULL|         NULL|       NULL|               NULL|                  NULL|                NULL|                NULL|      NULL|                    NULL|                NULL|              NULL|         NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.069+0000] {subprocess.py:93} INFO - | CUS_0x8d3d|   2024-08-01|     16750.04|            1435.8367|              9.0|           10.0|         27.0|        6.0|               41.0|                  19.0|                29.4|                15.0|       Bad|               23.590292|Low_spent_Small_v...|               144|      Manager|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|       NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|        NULL|
+[2025-11-09T12:32:35.070+0000] {subprocess.py:93} INFO - +-----------+-------------+-------------+---------------------+-----------------+---------------+-------------+-----------+-------------------+----------------------+--------------------+--------------------+----------+------------------------+--------------------+------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+[2025-11-09T12:32:35.070+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T12:32:37.747+0000] {subprocess.py:93} INFO - [Stage 20:====================================>                    (7 + 4) / 11]
+[2025-11-09T12:32:37.752+0000] {subprocess.py:93} INFO - Customer_ID nulls: 0 / 22524
+[2025-11-09T12:32:37.753+0000] {subprocess.py:93} INFO - Row count: Customer_ID                 0
+[2025-11-09T12:32:37.754+0000] {subprocess.py:93} INFO - snapshot_date               0
+[2025-11-09T12:32:37.755+0000] {subprocess.py:93} INFO - loan_id                     0
+[2025-11-09T12:32:37.755+0000] {subprocess.py:93} INFO - label                       0
+[2025-11-09T12:32:37.756+0000] {subprocess.py:93} INFO - label_def                   0
+[2025-11-09T12:32:37.757+0000] {subprocess.py:93} INFO - Annual_Income               0
+[2025-11-09T12:32:37.758+0000] {subprocess.py:93} INFO - Monthly_Inhand_Salary       0
+[2025-11-09T12:32:37.759+0000] {subprocess.py:93} INFO - Num_Bank_Accounts           0
+[2025-11-09T12:32:37.759+0000] {subprocess.py:93} INFO - Num_Credit_Card             0
+[2025-11-09T12:32:37.760+0000] {subprocess.py:93} INFO - Interest_Rate               0
+[2025-11-09T12:32:37.761+0000] {subprocess.py:93} INFO - Num_of_Loan                 0
+[2025-11-09T12:32:37.761+0000] {subprocess.py:93} INFO - Delay_from_due_date         0
+[2025-11-09T12:32:37.762+0000] {subprocess.py:93} INFO - Num_of_Delayed_Payment      0
+[2025-11-09T12:32:37.763+0000] {subprocess.py:93} INFO - Changed_Credit_Limit        0
+[2025-11-09T12:32:37.763+0000] {subprocess.py:93} INFO - Num_Credit_Inquiries        0
+[2025-11-09T12:32:37.764+0000] {subprocess.py:93} INFO - Credit_Mix                  0
+[2025-11-09T12:32:37.765+0000] {subprocess.py:93} INFO - Credit_Utilization_Ratio    0
+[2025-11-09T12:32:37.765+0000] {subprocess.py:93} INFO - Payment_Behaviour           0
+[2025-11-09T12:32:37.766+0000] {subprocess.py:93} INFO - Credit_History_Age          0
+[2025-11-09T12:32:37.766+0000] {subprocess.py:93} INFO - Occupation                  0
+[2025-11-09T12:32:37.767+0000] {subprocess.py:93} INFO - fe_1_5m_avg                 0
+[2025-11-09T12:32:37.767+0000] {subprocess.py:93} INFO - fe_2_5m_avg                 0
+[2025-11-09T12:32:37.768+0000] {subprocess.py:93} INFO - fe_3_5m_avg                 0
+[2025-11-09T12:32:37.768+0000] {subprocess.py:93} INFO - fe_4_5m_avg                 0
+[2025-11-09T12:32:37.769+0000] {subprocess.py:93} INFO - fe_5_5m_avg                 0
+[2025-11-09T12:32:37.770+0000] {subprocess.py:93} INFO - fe_6_5m_avg                 0
+[2025-11-09T12:32:37.771+0000] {subprocess.py:93} INFO - fe_7_5m_avg                 0
+[2025-11-09T12:32:37.771+0000] {subprocess.py:93} INFO - fe_8_5m_avg                 0
+[2025-11-09T12:32:37.772+0000] {subprocess.py:93} INFO - fe_9_5m_avg                 0
+[2025-11-09T12:32:37.773+0000] {subprocess.py:93} INFO - fe_10_5m_avg                0
+[2025-11-09T12:32:37.774+0000] {subprocess.py:93} INFO - fe_11_5m_avg                0
+[2025-11-09T12:32:37.774+0000] {subprocess.py:93} INFO - fe_12_5m_avg                0
+[2025-11-09T12:32:37.775+0000] {subprocess.py:93} INFO - fe_13_5m_avg                0
+[2025-11-09T12:32:37.776+0000] {subprocess.py:93} INFO - fe_14_5m_avg                0
+[2025-11-09T12:32:37.777+0000] {subprocess.py:93} INFO - fe_15_5m_avg                0
+[2025-11-09T12:32:37.778+0000] {subprocess.py:93} INFO - fe_16_5m_avg                0
+[2025-11-09T12:32:37.778+0000] {subprocess.py:93} INFO - fe_17_5m_avg                0
+[2025-11-09T12:32:37.779+0000] {subprocess.py:93} INFO - fe_18_5m_avg                0
+[2025-11-09T12:32:37.779+0000] {subprocess.py:93} INFO - fe_19_5m_avg                0
+[2025-11-09T12:32:37.781+0000] {subprocess.py:93} INFO - fe_20_5m_avg                0
+[2025-11-09T12:32:37.781+0000] {subprocess.py:93} INFO - dtype: int64
+[2025-11-09T12:32:37.782+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-09T12:32:37.783+0000] {subprocess.py:93} INFO -   File "/app/scripts/04_train_model.py", line 125, in <module>
+[2025-11-09T12:32:37.783+0000] {subprocess.py:93} INFO -     X_oot = oot_pdf[feature_cols]
+[2025-11-09T12:32:37.784+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+[2025-11-09T12:32:37.785+0000] {subprocess.py:93} INFO -     indexer = self.columns._get_indexer_strict(key, "columns")[1]
+[2025-11-09T12:32:37.786+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+[2025-11-09T12:32:37.787+0000] {subprocess.py:93} INFO -     self._raise_if_missing(keyarr, indexer, axis_name)
+[2025-11-09T12:32:37.788+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+[2025-11-09T12:32:37.789+0000] {subprocess.py:93} INFO -     raise KeyError(f"{not_found} not in index")
+[2025-11-09T12:32:37.790+0000] {subprocess.py:93} INFO - KeyError: "['fe_1', 'fe_2', 'fe_3', 'fe_4', 'fe_5', 'fe_6', 'fe_7', 'fe_8', 'fe_9', 'fe_10', 'fe_11', 'fe_12', 'fe_13', 'fe_14', 'fe_15', 'fe_16', 'fe_17', 'fe_18', 'fe_19', 'fe_20'] not in index"
+[2025-11-09T12:32:38.388+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-09T12:32:38.399+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-09T12:32:38.402+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=data_pipeline_dag, task_id=train_model, run_id=manual__2025-11-09T12:27:00.362859+00:00, execution_date=20251109T122700, start_date=20251109T123223, end_date=20251109T123238
+[2025-11-09T12:32:38.432+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T12:32:38.433+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 41 for task train_model (Bash command failed. The command returned a non-zero exit code 1.; 3600)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-09T12:32:38.462+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-09T12:32:38.478+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T12:32:38.480+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -75,8 +75,7 @@ df_labels.count()
 # %%
 # Load Features
 gold_feature_directory = "/app/datamart/gold/feature_store/"
-files_list = [gold_feature_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_feature_directory, '*'))]
-df_features = spark.read.option("header", "true").parquet(*files_list)
+df_features = spark.read.option("header", "true").parquet(gold_feature_directory)
 
 # filter dates
 df_features = df_features.filter((col("snapshot_date") >= config["train_test_start_date"]) & (col("snapshot_date") <= config["oot_end_date"]))
@@ -102,20 +101,14 @@ oot_pdf = data_pdf[(data_pdf['snapshot_date'] >= config["oot_start_date"].date()
 train_test_pdf = data_pdf[(data_pdf['snapshot_date'] >= config["train_test_start_date"].date()) & (data_pdf['snapshot_date'] <= config["train_test_end_date"].date())]
 
 num_cols = [
-    "Annual_Income",
-    "Monthly_Inhand_Salary",
-    "Num_Bank_Accounts",
-    "Num_Credit_Card",
-    "Interest_Rate",
-    "Num_of_Loan",
-    "Delay_from_due_date",
-    "Num_of_Delayed_Payment",
-    "Changed_Credit_Limit",
-    "Num_Credit_Inquiries",
-    "Credit_Utilization_Ratio",
-    "Credit_History_Age",
-    "fe_1","fe_2","fe_3","fe_4","fe_5","fe_6","fe_7","fe_8","fe_9","fe_10",
-    "fe_11","fe_12","fe_13","fe_14","fe_15","fe_16","fe_17","fe_18","fe_19","fe_20"
+ "Annual_Income","Monthly_Inhand_Salary","Num_Bank_Accounts","Num_Credit_Card",
+ "Interest_Rate","Num_of_Loan","Delay_from_due_date","Num_of_Delayed_Payment",
+ "Changed_Credit_Limit","Num_Credit_Inquiries","Credit_Utilization_Ratio",
+ "Credit_History_Age",
+ "fe_1_5m_avg","fe_2_5m_avg","fe_3_5m_avg","fe_4_5m_avg","fe_5_5m_avg",
+ "fe_6_5m_avg","fe_7_5m_avg","fe_8_5m_avg","fe_9_5m_avg","fe_10_5m_avg",
+ "fe_11_5m_avg","fe_12_5m_avg","fe_13_5m_avg","fe_14_5m_avg","fe_15_5m_avg",
+ "fe_16_5m_avg","fe_17_5m_avg","fe_18_5m_avg","fe_19_5m_avg","fe_20_5m_avg"
 ]
 
 cat_cols = ["Credit_Mix", "Payment_Behaviour", "Occupation"]

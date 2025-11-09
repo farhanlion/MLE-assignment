@@ -1,0 +1,33 @@
+[2025-11-09T11:36:35.974+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T11:36:35.989+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:36:13.645155+00:00 [queued]>
+[2025-11-09T11:36:36.000+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:36:13.645155+00:00 [queued]>
+[2025-11-09T11:36:36.001+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-09T11:36:36.033+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): model_monitoring.check_model_performance> on 2025-11-09 11:36:13.645155+00:00
+[2025-11-09T11:36:36.037+0000] {standard_task_runner.py:72} INFO - Started process 18719 to run task
+[2025-11-09T11:36:36.040+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'scheduled_training_dag', 'model_monitoring.check_model_performance', 'manual__2025-11-09T11:36:13.645155+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/inference_monitoring_dag.py', '--cfg-path', '/tmp/tmpeoxy23_0']
+[2025-11-09T11:36:36.043+0000] {standard_task_runner.py:105} INFO - Job 34: Subtask model_monitoring.check_model_performance
+[2025-11-09T11:36:36.120+0000] {task_command.py:467} INFO - Running <TaskInstance: scheduled_training_dag.model_monitoring.check_model_performance manual__2025-11-09T11:36:13.645155+00:00 [running]> on host 7468da456d69
+[2025-11-09T11:36:36.220+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='scheduled_training_dag' AIRFLOW_CTX_TASK_ID='model_monitoring.check_model_performance' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T11:36:13.645155+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T11:36:13.645155+00:00'
+[2025-11-09T11:36:36.221+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T11:36:36.234+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T11:36:36.235+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/06_model_performance_monitoring.py --train_date 2016-04-01']
+[2025-11-09T11:36:36.243+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T11:36:38.342+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T11:36:38.344+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T11:36:38.531+0000] {subprocess.py:93} INFO - 25/11/09 11:36:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T11:36:45.043+0000] {subprocess.py:93} INFO - [Stage 3:==============>                                           (3 + 9) / 12]
+[2025-11-09T11:36:45.044+0000] {subprocess.py:93} INFO - 📊 Model Metrics Table
+[2025-11-09T11:36:45.045+0000] {subprocess.py:93} INFO -        Metric  Value
+[2025-11-09T11:36:45.046+0000] {subprocess.py:93} INFO -           AUC 0.7752
+[2025-11-09T11:36:45.047+0000] {subprocess.py:93} INFO -            F1 0.4425
+[2025-11-09T11:36:45.048+0000] {subprocess.py:93} INFO -     Precision 0.6250
+[2025-11-09T11:36:45.048+0000] {subprocess.py:93} INFO -        Recall 0.3425
+[2025-11-09T11:36:45.049+0000] {subprocess.py:93} INFO -         Brier 0.1596
+[2025-11-09T11:36:45.049+0000] {subprocess.py:93} INFO -     Pred_Mean 0.2412
+[2025-11-09T11:36:45.050+0000] {subprocess.py:93} INFO - Positive_Rate 0.1493
+[2025-11-09T11:36:45.631+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-09T11:36:45.665+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T11:36:45.666+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=scheduled_training_dag, task_id=model_monitoring.check_model_performance, run_id=manual__2025-11-09T11:36:13.645155+00:00, execution_date=20251109T113613, start_date=20251109T113635, end_date=20251109T113645
+[2025-11-09T11:36:45.716+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T11:36:45.736+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T11:36:45.737+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

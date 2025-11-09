@@ -51,11 +51,10 @@ print("Model loaded successfully! " + config["model_artefact_filepath"])
 
 # Load Features
 gold_feature_directory = "/app/datamart/gold/feature_store/"
-files_list = [gold_feature_directory+os.path.basename(f) for f in glob.glob(os.path.join(gold_feature_directory, '*'))]
-features_store_sdf = spark.read.option("header", "true").parquet(*files_list)
+df_features = spark.read.option("header", "true").parquet(gold_feature_directory)
 
 # filter features for snapshot_date
-features_sdf = features_store_sdf.filter((col("snapshot_date") == config["snapshot_date"]))
+features_sdf = df_features.filter((col("snapshot_date") == config["snapshot_date"]))
 print("extracted features_sdf", features_sdf.count(), config["snapshot_date"])
 
 # %%

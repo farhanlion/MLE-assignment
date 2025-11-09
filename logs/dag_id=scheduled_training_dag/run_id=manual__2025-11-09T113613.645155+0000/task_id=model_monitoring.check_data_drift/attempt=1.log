@@ -1,0 +1,59 @@
+[2025-11-09T11:36:47.699+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T11:36:47.712+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_data_drift manual__2025-11-09T11:36:13.645155+00:00 [queued]>
+[2025-11-09T11:36:47.721+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: scheduled_training_dag.model_monitoring.check_data_drift manual__2025-11-09T11:36:13.645155+00:00 [queued]>
+[2025-11-09T11:36:47.722+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-11-09T11:36:47.746+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): model_monitoring.check_data_drift> on 2025-11-09 11:36:13.645155+00:00
+[2025-11-09T11:36:47.750+0000] {standard_task_runner.py:72} INFO - Started process 18993 to run task
+[2025-11-09T11:36:47.755+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'scheduled_training_dag', 'model_monitoring.check_data_drift', 'manual__2025-11-09T11:36:13.645155+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/inference_monitoring_dag.py', '--cfg-path', '/tmp/tmp0zp8zqm5']
+[2025-11-09T11:36:47.757+0000] {standard_task_runner.py:105} INFO - Job 35: Subtask model_monitoring.check_data_drift
+[2025-11-09T11:36:47.826+0000] {task_command.py:467} INFO - Running <TaskInstance: scheduled_training_dag.model_monitoring.check_data_drift manual__2025-11-09T11:36:13.645155+00:00 [running]> on host 7468da456d69
+[2025-11-09T11:36:47.912+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='scheduled_training_dag' AIRFLOW_CTX_TASK_ID='model_monitoring.check_data_drift' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T11:36:13.645155+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-09T11:36:13.645155+00:00'
+[2025-11-09T11:36:47.913+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T11:36:47.924+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-09T11:36:47.926+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /app/scripts/07_data_drift_monitoring.py --train_date 2016-04-01']
+[2025-11-09T11:36:47.932+0000] {subprocess.py:86} INFO - Output:
+[2025-11-09T11:36:49.281+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-11-09T11:36:49.283+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-11-09T11:36:49.426+0000] {subprocess.py:93} INFO - 25/11/09 11:36:49 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-11-09T11:37:00.527+0000] {subprocess.py:93} INFO - [Stage 4:==============>                                           (3 + 9) / 12]                                                                                predictions:
+[2025-11-09T11:37:00.530+0000] {subprocess.py:93} INFO - True labels:
+[2025-11-09T11:37:00.531+0000] {subprocess.py:93} INFO - Features:
+[2025-11-09T11:37:00.532+0000] {subprocess.py:93} INFO - +-------------+-----+
+[2025-11-09T11:37:00.533+0000] {subprocess.py:93} INFO - |snapshot_date|count|
+[2025-11-09T11:37:00.534+0000] {subprocess.py:93} INFO - +-------------+-----+
+[2025-11-09T11:37:00.535+0000] {subprocess.py:93} INFO - |2023-08-01   |530  |
+[2025-11-09T11:37:00.536+0000] {subprocess.py:93} INFO - |2023-09-01   |501  |
+[2025-11-09T11:37:00.537+0000] {subprocess.py:93} INFO - |2023-10-01   |506  |
+[2025-11-09T11:37:00.538+0000] {subprocess.py:93} INFO - |2023-11-01   |510  |
+[2025-11-09T11:37:00.538+0000] {subprocess.py:93} INFO - |2023-12-01   |521  |
+[2025-11-09T11:37:00.539+0000] {subprocess.py:93} INFO - |2024-01-01   |517  |
+[2025-11-09T11:37:00.540+0000] {subprocess.py:93} INFO - |2024-02-01   |471  |
+[2025-11-09T11:37:00.541+0000] {subprocess.py:93} INFO - |2024-03-01   |481  |
+[2025-11-09T11:37:00.541+0000] {subprocess.py:93} INFO - |2024-04-01   |454  |
+[2025-11-09T11:37:00.542+0000] {subprocess.py:93} INFO - |2024-05-01   |487  |
+[2025-11-09T11:37:00.543+0000] {subprocess.py:93} INFO - |2024-06-01   |491  |
+[2025-11-09T11:37:00.543+0000] {subprocess.py:93} INFO - |2024-07-01   |489  |
+[2025-11-09T11:37:00.544+0000] {subprocess.py:93} INFO - |2024-08-01   |485  |
+[2025-11-09T11:37:00.544+0000] {subprocess.py:93} INFO - |2024-09-01   |518  |
+[2025-11-09T11:37:00.545+0000] {subprocess.py:93} INFO - |2024-10-01   |511  |
+[2025-11-09T11:37:00.546+0000] {subprocess.py:93} INFO - |2024-11-01   |513  |
+[2025-11-09T11:37:00.547+0000] {subprocess.py:93} INFO - |2024-12-01   |491  |
+[2025-11-09T11:37:00.547+0000] {subprocess.py:93} INFO - |2025-01-01   |498  |
+[2025-11-09T11:37:00.548+0000] {subprocess.py:93} INFO - |2025-02-01   |505  |
+[2025-11-09T11:37:00.549+0000] {subprocess.py:93} INFO - |2025-03-01   |543  |
+[2025-11-09T11:37:00.549+0000] {subprocess.py:93} INFO - +-------------+-----+
+[2025-11-09T11:37:00.550+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2025-11-09T11:37:00.551+0000] {subprocess.py:93} INFO - 
+[2025-11-09T11:37:00.551+0000] {subprocess.py:93} INFO - Annual_Income KS stat: 0.11257651056139721 p-value: 0.010990015007604005
+[2025-11-09T11:37:00.552+0000] {subprocess.py:93} INFO - Num_of_Loan KS stat: 0.028982726715724196 p-value: 0.9932526646117849
+[2025-11-09T11:37:00.553+0000] {subprocess.py:93} INFO - Credit_History_Age KS stat: 0.06969346264056592 p-value: 0.26547589465285126
+[2025-11-09T11:37:00.554+0000] {subprocess.py:93} INFO - fe_1 KS stat: 0.04579184176161506 p-value: 0.767998302949824
+[2025-11-09T11:37:00.554+0000] {subprocess.py:93} INFO - fe_2 KS stat: 0.0619696866548252 p-value: 0.40013012873589193
+[2025-11-09T11:37:00.555+0000] {subprocess.py:93} INFO - fe_3 KS stat: 0.07980616292958863 p-value: 0.14345904071452828
+[2025-11-09T11:37:00.556+0000] {subprocess.py:93} INFO - PSI: 0.0567709270854883
+[2025-11-09T11:37:01.068+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-09T11:37:01.099+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T11:37:01.101+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=scheduled_training_dag, task_id=model_monitoring.check_data_drift, run_id=manual__2025-11-09T11:36:13.645155+00:00, execution_date=20251109T113613, start_date=20251109T113647, end_date=20251109T113701
+[2025-11-09T11:37:01.156+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T11:37:01.173+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T11:37:01.175+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
